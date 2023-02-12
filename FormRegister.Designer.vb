@@ -184,7 +184,7 @@ Partial Class FormRegister
         Me.LabelRegisteration.Name = "LabelRegisteration"
         Me.LabelRegisteration.Size = New System.Drawing.Size(207, 45)
         Me.LabelRegisteration.TabIndex = 15
-        Me.LabelRegisteration.Text = "Regsiteration"
+        Me.LabelRegisteration.Text = "Registeration"
         '
         'LabelDOB
         '

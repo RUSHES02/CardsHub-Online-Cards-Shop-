@@ -7,7 +7,11 @@ Public Class FormRegister
 
     Dim fullname, username, password, pan, gender, email, phone, errormsg As String
 
+    Dim dbsource As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\SE_PROJECT\ShareMarket\Resources\stock_market.accdb"
+    Dim conn = New OleDbConnection(dbsource)
+
     Private Sub FormRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         PictureBoxErrorRegFullName.Visible = False
         PictureBoxErrorRegPhoneNo.Visible = False
         PictureBoxErrorRegPanCard.Visible = False
@@ -90,15 +94,28 @@ Public Class FormRegister
         For Each c As Char In pan
             If (i >= 6 And i <= 9) Then
                 If Not (IsNumeric(c)) Then
-                    PictureBoxErrorRegPhoneNo.Visible = True
+                    PictureBoxErrorRegPanCard.Visible = True
                     Return False
                 End If
             ElseIf Not (Asc(c) >= 65 And Asc(c) <= 90) Then
-                PictureBoxErrorRegPhoneNo.Visible = True
+                PictureBoxErrorRegPanCard.Visible = True
                 Return False
             End If
             i += 1
         Next
+
+        conn.Open()
+        Using cmd As OleDbCommand = New OleDbCommand("SELECT COUNT (*) FROM REGISTRATION WHERE [PAN]= @PAN", conn)
+            cmd.Parameters.AddWithValue("@PAN", OleDbType.VarChar).Value = TextBoxRegPanCard.Text.Trim
+            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
+
+            If (count > 0) Then
+                PictureBoxErrorRegPanCard.Visible = True
+                Return False
+            End If
+        End Using
+        conn.Close()
+
         Return True
     End Function
 
@@ -122,6 +139,19 @@ Public Class FormRegister
             PictureBoxErrorRegUsername.Visible = True
             Return False
         End If
+
+        conn.Open()
+        Using cmd As OleDbCommand = New OleDbCommand("SELECT COUNT (*) FROM REGISTRATION WHERE [USERNAME]= @USERNAME", conn)
+            cmd.Parameters.AddWithValue("@USERNAME", OleDbType.VarChar).Value = TextBoxRegUsername.Text.Trim
+            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
+
+            If (count > 0) Then
+                PictureBoxErrorRegUsername.Visible = True
+                Return False
+            End If
+        End Using
+        conn.Close()
+
         Return True
     End Function
 
@@ -130,6 +160,19 @@ Public Class FormRegister
             PictureBoxErrorRegEmail.Visible = True
             Return False
         End If
+
+        conn.Open()
+        Using cmd As OleDbCommand = New OleDbCommand("SELECT COUNT (*) FROM REGISTRATION WHERE [EMAIL]= @EMAIL", conn)
+            cmd.Parameters.AddWithValue("@EMAIL", OleDbType.VarChar).Value = TextBoxRegEmail.Text.Trim
+            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
+
+            If (count > 0) Then
+                PictureBoxErrorRegEmail.Visible = True
+                Return False
+            End If
+        End Using
+        conn.Close()
+
         Return True
     End Function
 
@@ -141,8 +184,6 @@ Public Class FormRegister
         Return True
     End Function
     Private Sub RegisterInDb()
-        Dim dbsource As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\SE_PROJECT\ShareMarket\Resources\stock_market.accdb"
-        Dim conn = New OleDbConnection(dbsource)
         conn.Open()
         Dim str = "Insert into [REGISTRATION]( [NAME], [USERNAME], [PASSWORD], [DOB], [PAN], [EMAIL], [GENDER], [PHONE]) Values ('" & fullname & "','" & username & "','" & password & "','" & dob & "','" & pan & "','" & email & "','" & gender & "','" & phone & "' );"
         Dim cmd As OleDbCommand = New OleDbCommand(str, conn)
