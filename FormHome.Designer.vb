@@ -27,7 +27,12 @@ Partial Class FormHome
         Me.TabWatchlist = New System.Windows.Forms.TabPage()
         Me.TabHoldings = New System.Windows.Forms.TabPage()
         Me.TabWallet = New System.Windows.Forms.TabPage()
+        Me.ListViewHome = New System.Windows.Forms.ListView()
+        Me.ColumnCompanyName = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnStockName = New System.Windows.Forms.ColumnHeader()
+        Me.ColumnPrice = New System.Windows.Forms.ColumnHeader()
         Me.TabControl1.SuspendLayout()
+        Me.TabHome.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -44,6 +49,7 @@ Partial Class FormHome
         '
         'TabHome
         '
+        Me.TabHome.Controls.Add(Me.ListViewHome)
         Me.TabHome.Location = New System.Drawing.Point(4, 24)
         Me.TabHome.Margin = New System.Windows.Forms.Padding(10)
         Me.TabHome.Name = "TabHome"
@@ -75,6 +81,7 @@ Partial Class FormHome
         '
         'TabWallet
         '
+        Me.TabWallet.Font = New System.Drawing.Font("Stencil", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.TabWallet.Location = New System.Drawing.Point(4, 24)
         Me.TabWallet.Name = "TabWallet"
         Me.TabWallet.Padding = New System.Windows.Forms.Padding(3)
@@ -82,6 +89,32 @@ Partial Class FormHome
         Me.TabWallet.TabIndex = 3
         Me.TabWallet.Text = "Wallet"
         Me.TabWallet.UseVisualStyleBackColor = True
+        '
+        'ListViewHome
+        '
+        Me.ListViewHome.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnCompanyName, Me.ColumnStockName, Me.ColumnPrice})
+        Me.ListViewHome.GridLines = True
+        Me.ListViewHome.Location = New System.Drawing.Point(127, 120)
+        Me.ListViewHome.Name = "ListViewHome"
+        Me.ListViewHome.Size = New System.Drawing.Size(879, 335)
+        Me.ListViewHome.TabIndex = 1
+        Me.ListViewHome.UseCompatibleStateImageBehavior = False
+        Me.ListViewHome.View = System.Windows.Forms.View.Details
+        '
+        'ColumnCompanyName
+        '
+        Me.ColumnCompanyName.Text = "Company Name"
+        Me.ColumnCompanyName.Width = 300
+        '
+        'ColumnStockName
+        '
+        Me.ColumnStockName.Text = "Stock Name"
+        Me.ColumnStockName.Width = 150
+        '
+        'ColumnPrice
+        '
+        Me.ColumnPrice.Text = "Price"
+        Me.ColumnPrice.Width = 100
         '
         'FormHome
         '
@@ -93,6 +126,7 @@ Partial Class FormHome
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormHome"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabHome.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -102,4 +136,8 @@ Partial Class FormHome
     Friend WithEvents TabWatchlist As TabPage
     Friend WithEvents TabHoldings As TabPage
     Friend WithEvents TabWallet As TabPage
+    Friend WithEvents ListViewHome As ListView
+    Friend WithEvents ColumnCompanyName As ColumnHeader
+    Friend WithEvents ColumnStockName As ColumnHeader
+    Friend WithEvents ColumnPrice As ColumnHeader
 End Class
