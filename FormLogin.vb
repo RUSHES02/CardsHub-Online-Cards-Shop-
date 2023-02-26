@@ -5,12 +5,14 @@ Public Class FormLogin
     Dim dbsource As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\SE_PROJECT\ShareMarket\Resources\stock_market.accdb"
     Dim conn = New OleDbConnection(dbsource)
 
+    Dim username As String
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBoxErrorLogPassword.Visible = False
         PictureBoxErrorLogUsername.Visible = False
     End Sub
 
     Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
+        username = TextBoxLogUsername.Text
         userlogin()
     End Sub
 
