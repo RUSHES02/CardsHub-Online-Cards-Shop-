@@ -6,6 +6,6 @@
 
     Private Sub ButtonBack_Click(sender As Object, e As EventArgs) Handles ButtonBack.Click
         Me.Close()
-        FormHome.Show()
+        FormChooseType.Show()
     End Sub
 End Class

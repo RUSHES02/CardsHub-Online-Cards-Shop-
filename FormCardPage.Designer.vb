@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormCardList
+Partial Class FormCardPage
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,41 +22,31 @@ Partial Class FormCardList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
-        ButtonBack = New Button()
+        PictureBox1 = New PictureBox()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Label1
+        ' PictureBox1
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(129, 87)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(41, 15)
-        Label1.TabIndex = 0
-        Label1.Text = "Label1"' 
-        ' ButtonBack
+        PictureBox1.Image = My.Resources.Resources.Invite_1
+        PictureBox1.Location = New Point(340, 12)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(452, 572)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 0
+        PictureBox1.TabStop = False
         ' 
-        ButtonBack.Location = New Point(622, 354)
-        ButtonBack.Name = "ButtonBack"
-        ButtonBack.Size = New Size(75, 23)
-        ButtonBack.TabIndex = 1
-        ButtonBack.Text = "Back"
-        ButtonBack.UseVisualStyleBackColor = True
-        ' 
-        ' FormCardList
+        ' FormCardPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
-        Controls.Add(ButtonBack)
-        Controls.Add(Label1)
-        Name = "FormCardList"
-        Text = "FormCardList"
-        WindowState = FormWindowState.Maximized
+        ClientSize = New Size(1084, 861)
+        Controls.Add(PictureBox1)
+        Name = "FormCardPage"
+        Text = "FormCardPage"
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents ButtonBack As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

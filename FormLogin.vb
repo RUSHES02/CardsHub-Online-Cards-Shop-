@@ -34,7 +34,7 @@ Public Class FormLogin
             If reader.Read Then
                 MessageBox.Show("LOGIN SUCCESSFUL !!")
                 Me.Hide()
-                FormHome.Show()
+                FormChooseType.Show()
             Else
                 MessageBox.Show("INVALID LOGIN CREDENTIALS !!")
                 PictureBoxErrorLogPassword.Visible = True
@@ -49,7 +49,7 @@ Public Class FormLogin
         'If count > 0 Then
         MessageBox.Show("LOGIN SUCCESSFULL !!")
         Me.Close()
-        FormHome.Show()
+        FormChooseType.Show()
         ' End If
         'End Using
         conn.close()
