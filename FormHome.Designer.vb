@@ -22,113 +22,141 @@ Partial Class FormHome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabHome = New System.Windows.Forms.TabPage()
-        Me.TabWatchlist = New System.Windows.Forms.TabPage()
-        Me.TabHoldings = New System.Windows.Forms.TabPage()
-        Me.TabWallet = New System.Windows.Forms.TabPage()
-        Me.ListViewHome = New System.Windows.Forms.ListView()
-        Me.ColumnCompanyName = New System.Windows.Forms.ColumnHeader()
-        Me.ColumnStockName = New System.Windows.Forms.ColumnHeader()
-        Me.ColumnPrice = New System.Windows.Forms.ColumnHeader()
-        Me.TabControl1.SuspendLayout()
-        Me.TabHome.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabHome)
-        Me.TabControl1.Controls.Add(Me.TabWatchlist)
-        Me.TabControl1.Controls.Add(Me.TabHoldings)
-        Me.TabControl1.Controls.Add(Me.TabWallet)
-        Me.TabControl1.Location = New System.Drawing.Point(2, 1)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1112, 587)
-        Me.TabControl1.TabIndex = 0
-        '
-        'TabHome
-        '
-        Me.TabHome.Controls.Add(Me.ListViewHome)
-        Me.TabHome.Location = New System.Drawing.Point(4, 24)
-        Me.TabHome.Margin = New System.Windows.Forms.Padding(10)
-        Me.TabHome.Name = "TabHome"
-        Me.TabHome.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabHome.Size = New System.Drawing.Size(1104, 559)
-        Me.TabHome.TabIndex = 0
-        Me.TabHome.Text = "Home"
-        Me.TabHome.UseVisualStyleBackColor = True
-        '
-        'TabWatchlist
-        '
-        Me.TabWatchlist.Location = New System.Drawing.Point(4, 24)
-        Me.TabWatchlist.Name = "TabWatchlist"
-        Me.TabWatchlist.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabWatchlist.Size = New System.Drawing.Size(1104, 559)
-        Me.TabWatchlist.TabIndex = 1
-        Me.TabWatchlist.Text = "Watchlist"
-        Me.TabWatchlist.UseVisualStyleBackColor = True
-        '
-        'TabHoldings
-        '
-        Me.TabHoldings.Location = New System.Drawing.Point(4, 24)
-        Me.TabHoldings.Name = "TabHoldings"
-        Me.TabHoldings.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabHoldings.Size = New System.Drawing.Size(1104, 559)
-        Me.TabHoldings.TabIndex = 2
-        Me.TabHoldings.Text = "Holdings"
-        Me.TabHoldings.UseVisualStyleBackColor = True
-        '
-        'TabWallet
-        '
-        Me.TabWallet.Font = New System.Drawing.Font("Stencil", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.TabWallet.Location = New System.Drawing.Point(4, 24)
-        Me.TabWallet.Name = "TabWallet"
-        Me.TabWallet.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabWallet.Size = New System.Drawing.Size(1104, 559)
-        Me.TabWallet.TabIndex = 3
-        Me.TabWallet.Text = "Wallet"
-        Me.TabWallet.UseVisualStyleBackColor = True
-        '
-        'ListViewHome
-        '
-        Me.ListViewHome.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnCompanyName, Me.ColumnStockName, Me.ColumnPrice})
-        Me.ListViewHome.GridLines = True
-        Me.ListViewHome.Location = New System.Drawing.Point(127, 120)
-        Me.ListViewHome.Name = "ListViewHome"
-        Me.ListViewHome.Size = New System.Drawing.Size(879, 335)
-        Me.ListViewHome.TabIndex = 1
-        Me.ListViewHome.UseCompatibleStateImageBehavior = False
-        Me.ListViewHome.View = System.Windows.Forms.View.Details
-        '
-        'ColumnCompanyName
-        '
-        Me.ColumnCompanyName.Text = "Company Name"
-        Me.ColumnCompanyName.Width = 300
-        '
-        'ColumnStockName
-        '
-        Me.ColumnStockName.Text = "Stock Name"
-        Me.ColumnStockName.Width = 150
-        '
-        'ColumnPrice
-        '
-        Me.ColumnPrice.Text = "Price"
-        Me.ColumnPrice.Width = 100
-        '
-        'FormHome
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1114, 591)
-        Me.Controls.Add(Me.TabControl1)
-        Me.Name = "FormHome"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FormHome"
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabHome.ResumeLayout(False)
-        Me.ResumeLayout(False)
-
+        TabControl1 = New TabControl()
+        TabHome = New TabPage()
+        Button1 = New Button()
+        ButtonAddWatchlist = New Button()
+        ListViewHome = New ListView()
+        ColumnCompanyName = New ColumnHeader()
+        ColumnStockName = New ColumnHeader()
+        ColumnPrice = New ColumnHeader()
+        ColumnWatchlist = New ColumnHeader()
+        TabWatchlist = New TabPage()
+        TabHoldings = New TabPage()
+        TabWallet = New TabPage()
+        TabControl1.SuspendLayout()
+        TabHome.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' TabControl1
+        ' 
+        TabControl1.Controls.Add(TabHome)
+        TabControl1.Controls.Add(TabWatchlist)
+        TabControl1.Controls.Add(TabHoldings)
+        TabControl1.Controls.Add(TabWallet)
+        TabControl1.Location = New Point(2, 1)
+        TabControl1.Name = "TabControl1"
+        TabControl1.SelectedIndex = 0
+        TabControl1.Size = New Size(1112, 587)
+        TabControl1.TabIndex = 0
+        ' 
+        ' TabHome
+        ' 
+        TabHome.Controls.Add(Button1)
+        TabHome.Controls.Add(ButtonAddWatchlist)
+        TabHome.Controls.Add(ListViewHome)
+        TabHome.Location = New Point(4, 24)
+        TabHome.Margin = New Padding(10)
+        TabHome.Name = "TabHome"
+        TabHome.Padding = New Padding(3)
+        TabHome.Size = New Size(1104, 559)
+        TabHome.TabIndex = 0
+        TabHome.Text = "Home"
+        TabHome.UseVisualStyleBackColor = True
+        ' 
+        ' Button1
+        ' 
+        Button1.Cursor = Cursors.Hand
+        Button1.Location = New Point(848, 490)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 3
+        Button1.Text = "View  Market"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' ButtonAddWatchlist
+        ' 
+        ButtonAddWatchlist.Location = New Point(931, 482)
+        ButtonAddWatchlist.Name = "ButtonAddWatchlist"
+        ButtonAddWatchlist.Size = New Size(75, 41)
+        ButtonAddWatchlist.TabIndex = 2
+        ButtonAddWatchlist.Text = "Add to Watchlist"
+        ButtonAddWatchlist.UseVisualStyleBackColor = True
+        ' 
+        ' ListViewHome
+        ' 
+        ListViewHome.Columns.AddRange(New ColumnHeader() {ColumnCompanyName, ColumnStockName, ColumnPrice, ColumnWatchlist})
+        ListViewHome.GridLines = True
+        ListViewHome.Location = New Point(127, 120)
+        ListViewHome.Name = "ListViewHome"
+        ListViewHome.Size = New Size(879, 335)
+        ListViewHome.TabIndex = 1
+        ListViewHome.UseCompatibleStateImageBehavior = False
+        ListViewHome.View = View.Details
+        ' 
+        ' ColumnCompanyName
+        ' 
+        ColumnCompanyName.Text = "Company Name"
+        ColumnCompanyName.Width = 350
+        ' 
+        ' ColumnStockName
+        ' 
+        ColumnStockName.Text = "Stock Name"
+        ColumnStockName.Width = 150
+        ' 
+        ' ColumnPrice
+        ' 
+        ColumnPrice.Text = "Price"
+        ColumnPrice.Width = 100
+        ' 
+        ' ColumnWatchlist
+        ' 
+        ColumnWatchlist.Text = "Watchlist"
+        ColumnWatchlist.Width = 150
+        ' 
+        ' TabWatchlist
+        ' 
+        TabWatchlist.Location = New Point(4, 24)
+        TabWatchlist.Name = "TabWatchlist"
+        TabWatchlist.Padding = New Padding(3)
+        TabWatchlist.Size = New Size(1104, 559)
+        TabWatchlist.TabIndex = 1
+        TabWatchlist.Text = "Watchlist"
+        TabWatchlist.UseVisualStyleBackColor = True
+        ' 
+        ' TabHoldings
+        ' 
+        TabHoldings.Location = New Point(4, 24)
+        TabHoldings.Name = "TabHoldings"
+        TabHoldings.Padding = New Padding(3)
+        TabHoldings.Size = New Size(1104, 559)
+        TabHoldings.TabIndex = 2
+        TabHoldings.Text = "Holdings"
+        TabHoldings.UseVisualStyleBackColor = True
+        ' 
+        ' TabWallet
+        ' 
+        TabWallet.Font = New Font("Stencil", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        TabWallet.Location = New Point(4, 24)
+        TabWallet.Name = "TabWallet"
+        TabWallet.Padding = New Padding(3)
+        TabWallet.Size = New Size(1104, 559)
+        TabWallet.TabIndex = 3
+        TabWallet.Text = "Wallet"
+        TabWallet.UseVisualStyleBackColor = True
+        ' 
+        ' FormHome
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(1114, 591)
+        Controls.Add(TabControl1)
+        Name = "FormHome"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "FormHome"
+        TabControl1.ResumeLayout(False)
+        TabHome.ResumeLayout(False)
+        ResumeLayout(False)
     End Sub
 
     Friend WithEvents TabControl1 As TabControl
@@ -140,4 +168,7 @@ Partial Class FormHome
     Friend WithEvents ColumnCompanyName As ColumnHeader
     Friend WithEvents ColumnStockName As ColumnHeader
     Friend WithEvents ColumnPrice As ColumnHeader
+    Friend WithEvents ButtonAddWatchlist As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents ColumnWatchlist As ColumnHeader
 End Class

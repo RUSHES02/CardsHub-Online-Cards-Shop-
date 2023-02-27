@@ -3,12 +3,14 @@ Imports System.Data.SqlClient
 
 Public Class FormLogin
 
+    Dim username As String
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBoxErrorLogPassword.Visible = False
         PictureBoxErrorLogUsername.Visible = False
     End Sub
 
     Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
+        username = TextBoxLogUsername.Text
         userlogin()
     End Sub
 
