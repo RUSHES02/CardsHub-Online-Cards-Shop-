@@ -6,17 +6,17 @@ Public Class FormLogin
     Dim conn = New OleDbConnection(dbsource)
 
     Dim username As String
-    Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormLogin_Load(sender As Object, e As EventArgs)
         PictureBoxErrorLogPassword.Visible = False
         PictureBoxErrorLogUsername.Visible = False
     End Sub
 
-    Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
+    Private Sub ButtonLogin_Click(sender As Object, e As EventArgs)
         username = TextBoxLogUsername.Text
         userlogin()
     End Sub
 
-    Private Sub ButtonRegister_Click(sender As Object, e As EventArgs) Handles ButtonRegisterPage.Click
+    Private Sub ButtonRegister_Click(sender As Object, e As EventArgs)
         Me.Hide()
         FormRegister.Show()
     End Sub
@@ -38,8 +38,8 @@ Public Class FormLogin
         'Dim count = Convert.ToInt32(cmd.ExecuteScalar())
         'If count > 0 Then
         MessageBox.Show("LOGIN SUCCESSFULL !!")
-            Me.Close()
-            FormHome.Show()
+        Me.Close()
+        FormHome.Show()
         ' End If
         'End Using
         conn.close()

@@ -1,48 +1,77 @@
-﻿Imports System.Data.OleDb
-Imports FormLoad
-Public Class FormHome
-
-    Dim dbsource As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\SE_PROJECT\ShareMarket\Resources\stock_market.accdb"
-    Dim conn = New OleDbConnection(dbsource)
-    Dim cmd As OleDbCommand
-    Dim rd As OleDbDataReader
-
-    Private Sub FormHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        homeListViewFill()
-    End Sub
-
-    Public Sub homeListViewFill()
-        conn.Open()
-        cmd = New OleDbCommand("SELECT * FROM COMPANY", conn)
-        rd = cmd.ExecuteReader
-        FormLogin.userlogin()
-
-        If rd.HasRows Then
-            While rd.Read
-                Dim newItem As New ListViewItem()
-                newItem.Text = rd.GetValue(1)
-                newItem.SubItems.Add(rd.GetValue(2))
-                newItem.SubItems.Add(rd.GetValue(3))
-                ListViewHome.Items.Add(newItem)
-                'check watchlist table display accordingly
-            End While
-        End If
-        conn.Close()
-    End Sub
-
-    Private Sub ListViewHome_Click(sender As Object, e As EventArgs) Handles ListViewHome.Click
-        If ListViewHome.SelectedItems Is Nothing Then
-            'None, disable button.
-            ButtonAddWatchlist.Enabled = False
-        Else
-            'If an an item was selected. If exactly 1 then enable button, else disable. 
-            ButtonAddWatchlist.Enabled = ListViewHome.SelectedItems.Count() > 0
-        End If
+﻿Public Class FormHome
+    Private Sub FormHome_Load(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ButtonAddWatclist_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ButtonAddWatchlist.Click
-        'Remove from watch list
+    Private Sub ButtonBDayInvi_Click(sender As Object, e As EventArgs) Handles ButtonBDayInvi.Click
+        cardType = "Birtday Invitation"
+        Me.Hide()
+        FormCardList.Show()
     End Sub
 
+    Private Sub ButtonAnneversiryInvi_Click(sender As Object, e As EventArgs) Handles ButtonAnneversiryInvi.Click
+        cardType = "Anneversery Invitation"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonWeddingInvitation_Click(sender As Object, e As EventArgs) Handles ButtonWeddingInvitation.Click
+        cardType = "Wedding Invitation"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonBabyShowerInvitation_Click(sender As Object, e As EventArgs) Handles ButtonBabyShowerInvitation.Click
+        cardType = "Baby Shower Invitation"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonBussinessInvitation_Click(sender As Object, e As EventArgs) Handles ButtonBussinessInvitation.Click
+        cardType = "Business Invitation"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonInaugrationInvitation_Click(sender As Object, e As EventArgs) Handles ButtonInaugrationInvitation.Click
+        cardType = "Inaugration Invitation"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub Button1NewYeae_Click(sender As Object, e As EventArgs) Handles Button1NewYeae.Click
+        cardType = "New Year Wish"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonChristmas_Click(sender As Object, e As EventArgs) Handles ButtonChristmas.Click
+        cardType = "Christmas Wish"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonValentine_Click(sender As Object, e As EventArgs) Handles ButtonValentine.Click
+        cardType = "Valentine Wish"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonRetirementWishing_Click(sender As Object, e As EventArgs) Handles ButtonRetirementWishing.Click
+        cardType = "Retirement Wish"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonAnneversaryWishing_Click(sender As Object, e As EventArgs) Handles ButtonAnneversaryWishing.Click
+        cardType = "Anneversary Wish"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
+
+    Private Sub ButtonBirthdayWishing_Click(sender As Object, e As EventArgs) Handles ButtonBirthdayWishing.Click
+        cardType = "Birthday Wish"
+        Me.Hide()
+        FormCardList.Show()
+    End Sub
 End Class
