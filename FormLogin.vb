@@ -1,9 +1,7 @@
 ﻿
-Imports System.Data.OleDb
-Public Class FormLogin
+Imports System.Data.SqlClient
 
-    Dim dbsource As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\SE_PROJECT\ShareMarket\Resources\stock_market.accdb"
-    Dim conn = New OleDbConnection(dbsource)
+Public Class FormLogin
 
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBoxErrorLogPassword.Visible = False
@@ -22,24 +20,29 @@ Public Class FormLogin
     Sub userlogin()
         PictureBoxErrorLogPassword.Visible = False
         PictureBoxErrorLogUsername.Visible = False
-        conn.open()
-        Using cmd As OleDbCommand = New OleDbCommand("SELECT COUNT (*) FROM REGISTRATION WHERE [USERNAME]= @USERNAME", conn)
-            cmd.Parameters.AddWithValue("@USERNAME", OleDbType.VarChar).Value = TextBoxLogUsername.Text.Trim
-            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
-            If count = 0 Then
+        Dim conn As New SqlConnection
+        Dim cmd As New SqlCommand
+        conn.ConnectionString = "Data Source=DESKTOP-A26E0MD;Initial Catalog=SE_PROJECT;Integrated Security=True; "
+        conn.Open()
+        Try
+            Dim check As String = "SELECT * FROM table_user WHERE EMAIL = '" & TextBoxLogUsername.Text & "' AND PASSWORD = '" & TextBoxLogPassword.Text & " ' "
+            cmd = New SqlCommand(check, conn)
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+
+            If reader.Read Then
+                MessageBox.Show("LOGIN SUCCESSFUL !!")
+                Me.Hide()
+                FormHome.Show()
+            Else
+                MessageBox.Show("INVALID LOGIN CREDENTIALS !!")
+                PictureBoxErrorLogPassword.Visible = True
                 PictureBoxErrorLogUsername.Visible = True
             End If
-        End Using
-        'Using cmd As OleDbCommand = New OleDbCommand("SELECT COUNT [PASSWORD] = @PASSWORD FROM REGISTERATION WHERE USERNAME] =  ", conn)
-        'cmd.Parameters.AddWithValue("@PASSWORD", OleDbType.VarChar).Value = TextBoxLogPassword.Text.Trim
 
-        'Dim count = Convert.ToInt32(cmd.ExecuteScalar())
-        'If count > 0 Then
-        MessageBox.Show("LOGIN SUCCESSFULL !!")
-            Me.Close()
-            FormHome.Show()
-        ' End If
-        'End Using
+        Catch ex As Exception
+            MsgBox("MSSQL ERROR")
+        End Try
+
         conn.close()
     End Sub
 End Class
