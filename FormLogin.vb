@@ -3,14 +3,14 @@ Imports System.Data.SqlClient
 
 Public Class FormLogin
 
-    Dim username As String
+    Dim email As String
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBoxErrorLogPassword.Visible = False
         PictureBoxErrorLogUsername.Visible = False
     End Sub
 
     Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
-        username = TextBoxLogUsername.Text
+        email = TextBoxLogEmail.Text
         userlogin()
     End Sub
 
@@ -27,7 +27,7 @@ Public Class FormLogin
         conn.ConnectionString = "Data Source=DESKTOP-A26E0MD;Initial Catalog=SE_PROJECT;Integrated Security=True; "
         conn.Open()
         Try
-            Dim check As String = "SELECT * FROM table_user WHERE EMAIL = '" & TextBoxLogEmail.Text & "' AND PASSWORD = '" & TextBoxLogPassword.Text & " ' "
+            Dim check As String = "SELECT * FROM table_user WHERE EMAIL = '" & email & "' AND PASSWORD = '" & TextBoxLogPassword.Text & " ' "
             cmd = New SqlCommand(check, conn)
             Dim reader As SqlDataReader = cmd.ExecuteReader
 
