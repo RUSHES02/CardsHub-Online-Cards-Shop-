@@ -1,31 +1,29 @@
 
-SHARE MARKET MANAGEMENT APP
+CardHub 
 ------------------------------
 
 Introduction :
-Stock market management system refers to keeping track of the ownership of the shares of a company. A share represents part of a company. The shares department of this company maintains a share register to record details of each shareholder, including the number of shares he owns and the share certificates he holds.
+CardHub is an app which provides exclusive designs for various types of cards like wedding invitation card, birthday wishing card etc.
 
 About the Project:
-The proposed system is to create a complete application on the basis of client-server architecture.
-The system is to provide a website for the shareholder through which the shareholders are get informed in every bid of the share digitally. The facilities needed to be provided for the shareholders are :
+The  CardHub management system project in VB.NET is a computerized system that manages the creation, design, and distribution of invitation and wishing cards. It is an efficient and easy-to-use system that helps users to create and manage invitation/wishing cards for various events such as weddings, birthdays, and other social gatherings.
+The system allows users to create an account and log in to the system. Once logged in, users can create and manage invitation card templates, which can be customized with different backgrounds, fonts, colors, and images. The system also includes a database of predefined templates for users to choose from.
+Users can add event details such as the date, time, location, and other relevant information to the card templates.
 
-1.Online Applying for Shares
-2.Online Share transfer Facilities
-3.Daily Purchase and sales reports
 
 MODULES:
-1.	REGISTRATION
-2.	WALLET TRANSACTION
-3.	SHARE MARKET REGULATION
-4.	STOCK TRANSACTION
-5.	ADMINISTRATION
-
+1.	Registration
+2.  Template Management Module
+3.  Template Designing Module
+4.  Order Management Module
+5.  Payment Gateway Integration Module
 
 
 TEAM MEMBERS : 
 
-  1.  MAYUKH GHOSH 
-  2.  ABHIJAAN GANGULY 
-![stock-market-traders-data-provider-1000x1000](https://user-images.githubusercontent.com/93669449/218255294-d2aa9b63-df1b-4cb4-878e-d3a04e9d2fe9.png)
+  1.  MAYUKH GHOSH [ 21BCAC39 ]
+  2.  ABHIJAAN GANGULY [ 21BCAC05 ]
 
+COLLEGE NAME : KRISTU JAYANTI COLLEGE
 
+COURSE : BCA IV SEM

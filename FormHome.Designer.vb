@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormHome
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormHome
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         PictureThumnailBDayInvi = New PictureBox()
         LabelChooseTypeCard = New Label()
@@ -61,246 +61,116 @@ Partial Class FormHome
         CType(PicturethumbnailInaugrationInvitation, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' PictureThumnailBDayInvi
+        ' TabControl1
         ' 
-        PictureThumnailBDayInvi.Image = My.Resources.Resources.Invite_1
-        PictureThumnailBDayInvi.Location = New Point(56, 86)
-        PictureThumnailBDayInvi.Name = "PictureThumnailBDayInvi"
-        PictureThumnailBDayInvi.Size = New Size(252, 360)
-        PictureThumnailBDayInvi.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumnailBDayInvi.TabIndex = 5
-        PictureThumnailBDayInvi.TabStop = False
+        TabControl1.Controls.Add(TabHome)
+        TabControl1.Controls.Add(TabWatchlist)
+        TabControl1.Controls.Add(TabHoldings)
+        TabControl1.Controls.Add(TabWallet)
+        TabControl1.Location = New Point(2, 1)
+        TabControl1.Name = "TabControl1"
+        TabControl1.SelectedIndex = 0
+        TabControl1.Size = New Size(1112, 587)
+        TabControl1.TabIndex = 0
         ' 
-        ' LabelChooseTypeCard
+        ' TabHome
         ' 
-        LabelChooseTypeCard.AutoSize = True
-        LabelChooseTypeCard.Font = New Font("Stencil", 26.25F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelChooseTypeCard.Location = New Point(847, 22)
-        LabelChooseTypeCard.Name = "LabelChooseTypeCard"
-        LabelChooseTypeCard.Size = New Size(392, 42)
-        LabelChooseTypeCard.TabIndex = 6
-        LabelChooseTypeCard.Text = "Choose Type of Card"' 
-        ' PictureThumbnailAniiverseryInvi
+        TabHome.Controls.Add(Button1)
+        TabHome.Controls.Add(ButtonAddWatchlist)
+        TabHome.Controls.Add(ListViewHome)
+        TabHome.Location = New Point(4, 24)
+        TabHome.Margin = New Padding(10)
+        TabHome.Name = "TabHome"
+        TabHome.Padding = New Padding(3)
+        TabHome.Size = New Size(1104, 559)
+        TabHome.TabIndex = 0
+        TabHome.Text = "Home"
+        TabHome.UseVisualStyleBackColor = True
         ' 
-        PictureThumbnailAniiverseryInvi.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailAniiverseryInvi.Location = New Point(365, 86)
-        PictureThumbnailAniiverseryInvi.Name = "PictureThumbnailAniiverseryInvi"
-        PictureThumbnailAniiverseryInvi.Size = New Size(252, 360)
-        PictureThumbnailAniiverseryInvi.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailAniiverseryInvi.TabIndex = 8
-        PictureThumbnailAniiverseryInvi.TabStop = False
+        ' Button1
         ' 
-        ' PictureThumbnailWeddingInvitation
+        Button1.Cursor = Cursors.Hand
+        Button1.Location = New Point(848, 490)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 3
+        Button1.Text = "View  Market"
+        Button1.UseVisualStyleBackColor = True
         ' 
-        PictureThumbnailWeddingInvitation.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailWeddingInvitation.Location = New Point(678, 86)
-        PictureThumbnailWeddingInvitation.Name = "PictureThumbnailWeddingInvitation"
-        PictureThumbnailWeddingInvitation.Size = New Size(252, 360)
-        PictureThumbnailWeddingInvitation.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailWeddingInvitation.TabIndex = 9
-        PictureThumbnailWeddingInvitation.TabStop = False
+        ' ButtonAddWatchlist
         ' 
-        ' PictureThumbnailBirthdayWishing
+        ButtonAddWatchlist.Location = New Point(931, 482)
+        ButtonAddWatchlist.Name = "ButtonAddWatchlist"
+        ButtonAddWatchlist.Size = New Size(75, 41)
+        ButtonAddWatchlist.TabIndex = 2
+        ButtonAddWatchlist.Text = "Add to Watchlist"
+        ButtonAddWatchlist.UseVisualStyleBackColor = True
         ' 
-        PictureThumbnailBirthdayWishing.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailBirthdayWishing.Location = New Point(56, 579)
-        PictureThumbnailBirthdayWishing.Name = "PictureThumbnailBirthdayWishing"
-        PictureThumbnailBirthdayWishing.Size = New Size(252, 360)
-        PictureThumbnailBirthdayWishing.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailBirthdayWishing.TabIndex = 10
-        PictureThumbnailBirthdayWishing.TabStop = False
+        ' ListViewHome
         ' 
-        ' PictureThumbnailAnneversaryWishing
+        ListViewHome.Columns.AddRange(New ColumnHeader() {ColumnCompanyName, ColumnStockName, ColumnPrice, ColumnWatchlist})
+        ListViewHome.GridLines = True
+        ListViewHome.Location = New Point(127, 120)
+        ListViewHome.Name = "ListViewHome"
+        ListViewHome.Size = New Size(879, 335)
+        ListViewHome.TabIndex = 1
+        ListViewHome.UseCompatibleStateImageBehavior = False
+        ListViewHome.View = View.Details
         ' 
-        PictureThumbnailAnneversaryWishing.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailAnneversaryWishing.Location = New Point(365, 579)
-        PictureThumbnailAnneversaryWishing.Name = "PictureThumbnailAnneversaryWishing"
-        PictureThumbnailAnneversaryWishing.Size = New Size(252, 360)
-        PictureThumbnailAnneversaryWishing.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailAnneversaryWishing.TabIndex = 11
-        PictureThumbnailAnneversaryWishing.TabStop = False
+        ' ColumnCompanyName
         ' 
-        ' PictureThumbnailRetirementWishing
+        ColumnCompanyName.Text = "Company Name"
+        ColumnCompanyName.Width = 350
         ' 
-        PictureThumbnailRetirementWishing.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailRetirementWishing.Location = New Point(678, 579)
-        PictureThumbnailRetirementWishing.Name = "PictureThumbnailRetirementWishing"
-        PictureThumbnailRetirementWishing.Size = New Size(252, 360)
-        PictureThumbnailRetirementWishing.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailRetirementWishing.TabIndex = 12
-        PictureThumbnailRetirementWishing.TabStop = False
+        ' ColumnStockName
         ' 
-        ' ButtonBDayInvi
+        ColumnStockName.Text = "Stock Name"
+        ColumnStockName.Width = 150
         ' 
-        ButtonBDayInvi.Location = New Point(56, 452)
-        ButtonBDayInvi.Name = "ButtonBDayInvi"
-        ButtonBDayInvi.Size = New Size(252, 54)
-        ButtonBDayInvi.TabIndex = 13
-        ButtonBDayInvi.Text = "Birthday Invitation"
-        ButtonBDayInvi.UseVisualStyleBackColor = True
+        ' ColumnPrice
         ' 
-        ' ButtonAnneversiryInvi
+        ColumnPrice.Text = "Price"
+        ColumnPrice.Width = 100
         ' 
-        ButtonAnneversiryInvi.Location = New Point(365, 452)
-        ButtonAnneversiryInvi.Name = "ButtonAnneversiryInvi"
-        ButtonAnneversiryInvi.Size = New Size(252, 54)
-        ButtonAnneversiryInvi.TabIndex = 14
-        ButtonAnneversiryInvi.Text = "Annervery Invitation"
-        ButtonAnneversiryInvi.UseVisualStyleBackColor = True
+        ' ColumnWatchlist
         ' 
-        ' ButtonWeddingInvitation
+        ColumnWatchlist.Text = "Watchlist"
+        ColumnWatchlist.Width = 150
         ' 
-        ButtonWeddingInvitation.Location = New Point(678, 452)
-        ButtonWeddingInvitation.Name = "ButtonWeddingInvitation"
-        ButtonWeddingInvitation.Size = New Size(252, 54)
-        ButtonWeddingInvitation.TabIndex = 15
-        ButtonWeddingInvitation.Text = "Wedding Invitation"
-        ButtonWeddingInvitation.UseVisualStyleBackColor = True
+        ' TabWatchlist
         ' 
-        ' ButtonBirthdayWishing
+        TabWatchlist.Location = New Point(4, 24)
+        TabWatchlist.Name = "TabWatchlist"
+        TabWatchlist.Padding = New Padding(3)
+        TabWatchlist.Size = New Size(1104, 559)
+        TabWatchlist.TabIndex = 1
+        TabWatchlist.Text = "Watchlist"
+        TabWatchlist.UseVisualStyleBackColor = True
         ' 
-        ButtonBirthdayWishing.Location = New Point(56, 945)
-        ButtonBirthdayWishing.Name = "ButtonBirthdayWishing"
-        ButtonBirthdayWishing.Size = New Size(252, 54)
-        ButtonBirthdayWishing.TabIndex = 16
-        ButtonBirthdayWishing.Text = "Birthday Wishing"
-        ButtonBirthdayWishing.UseVisualStyleBackColor = True
+        ' TabHoldings
         ' 
-        ' ButtonAnneversaryWishing
+        TabHoldings.Location = New Point(4, 24)
+        TabHoldings.Name = "TabHoldings"
+        TabHoldings.Padding = New Padding(3)
+        TabHoldings.Size = New Size(1104, 559)
+        TabHoldings.TabIndex = 2
+        TabHoldings.Text = "Holdings"
+        TabHoldings.UseVisualStyleBackColor = True
         ' 
-        ButtonAnneversaryWishing.Location = New Point(365, 945)
-        ButtonAnneversaryWishing.Name = "ButtonAnneversaryWishing"
-        ButtonAnneversaryWishing.Size = New Size(252, 54)
-        ButtonAnneversaryWishing.TabIndex = 17
-        ButtonAnneversaryWishing.Text = "Anneversary Wishing"
-        ButtonAnneversaryWishing.UseVisualStyleBackColor = True
+        ' TabWallet
         ' 
-        ' ButtonRetirementWishing
-        ' 
-        ButtonRetirementWishing.Location = New Point(679, 945)
-        ButtonRetirementWishing.Name = "ButtonRetirementWishing"
-        ButtonRetirementWishing.Size = New Size(252, 54)
-        ButtonRetirementWishing.TabIndex = 18
-        ButtonRetirementWishing.Text = "Retirement Wishing"
-        ButtonRetirementWishing.UseVisualStyleBackColor = True
-        ' 
-        ' ButtonValentine
-        ' 
-        ButtonValentine.Location = New Point(987, 945)
-        ButtonValentine.Name = "ButtonValentine"
-        ButtonValentine.Size = New Size(252, 54)
-        ButtonValentine.TabIndex = 22
-        ButtonValentine.Text = "Valentine"
-        ButtonValentine.UseVisualStyleBackColor = True
-        ' 
-        ' ButtonBabyShowerInvitation
-        ' 
-        ButtonBabyShowerInvitation.Location = New Point(987, 452)
-        ButtonBabyShowerInvitation.Name = "ButtonBabyShowerInvitation"
-        ButtonBabyShowerInvitation.Size = New Size(252, 54)
-        ButtonBabyShowerInvitation.TabIndex = 21
-        ButtonBabyShowerInvitation.Text = "Baby Shower Invitation"
-        ButtonBabyShowerInvitation.UseVisualStyleBackColor = True
-        ' 
-        ' PictureThumbnailValentine
-        ' 
-        PictureThumbnailValentine.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailValentine.Location = New Point(987, 579)
-        PictureThumbnailValentine.Name = "PictureThumbnailValentine"
-        PictureThumbnailValentine.Size = New Size(252, 360)
-        PictureThumbnailValentine.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailValentine.TabIndex = 20
-        PictureThumbnailValentine.TabStop = False
-        ' 
-        ' PictureThumbnailBabyShowerInvitation
-        ' 
-        PictureThumbnailBabyShowerInvitation.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailBabyShowerInvitation.Location = New Point(987, 86)
-        PictureThumbnailBabyShowerInvitation.Name = "PictureThumbnailBabyShowerInvitation"
-        PictureThumbnailBabyShowerInvitation.Size = New Size(252, 360)
-        PictureThumbnailBabyShowerInvitation.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailBabyShowerInvitation.TabIndex = 19
-        PictureThumbnailBabyShowerInvitation.TabStop = False
-        ' 
-        ' ButtonChristmas
-        ' 
-        ButtonChristmas.Location = New Point(1299, 945)
-        ButtonChristmas.Name = "ButtonChristmas"
-        ButtonChristmas.Size = New Size(252, 54)
-        ButtonChristmas.TabIndex = 26
-        ButtonChristmas.Text = "Christmas"
-        ButtonChristmas.UseVisualStyleBackColor = True
-        ' 
-        ' ButtonBussinessInvitation
-        ' 
-        ButtonBussinessInvitation.Location = New Point(1299, 452)
-        ButtonBussinessInvitation.Name = "ButtonBussinessInvitation"
-        ButtonBussinessInvitation.Size = New Size(252, 54)
-        ButtonBussinessInvitation.TabIndex = 25
-        ButtonBussinessInvitation.Text = "Bussiness Invitation"
-        ButtonBussinessInvitation.UseVisualStyleBackColor = True
-        ' 
-        ' PictureThumbnailChristmas
-        ' 
-        PictureThumbnailChristmas.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailChristmas.Location = New Point(1299, 579)
-        PictureThumbnailChristmas.Name = "PictureThumbnailChristmas"
-        PictureThumbnailChristmas.Size = New Size(252, 360)
-        PictureThumbnailChristmas.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailChristmas.TabIndex = 24
-        PictureThumbnailChristmas.TabStop = False
-        ' 
-        ' PictureThumbnailBussinessInvitation
-        ' 
-        PictureThumbnailBussinessInvitation.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailBussinessInvitation.Location = New Point(1299, 86)
-        PictureThumbnailBussinessInvitation.Name = "PictureThumbnailBussinessInvitation"
-        PictureThumbnailBussinessInvitation.Size = New Size(252, 360)
-        PictureThumbnailBussinessInvitation.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailBussinessInvitation.TabIndex = 23
-        PictureThumbnailBussinessInvitation.TabStop = False
-        ' 
-        ' Button1NewYeae
-        ' 
-        Button1NewYeae.Location = New Point(1607, 945)
-        Button1NewYeae.Name = "Button1NewYeae"
-        Button1NewYeae.Size = New Size(252, 54)
-        Button1NewYeae.TabIndex = 30
-        Button1NewYeae.Text = "New Year"
-        Button1NewYeae.UseVisualStyleBackColor = True
-        ' 
-        ' ButtonInaugrationInvitation
-        ' 
-        ButtonInaugrationInvitation.Location = New Point(1607, 452)
-        ButtonInaugrationInvitation.Name = "ButtonInaugrationInvitation"
-        ButtonInaugrationInvitation.Size = New Size(252, 54)
-        ButtonInaugrationInvitation.TabIndex = 29
-        ButtonInaugrationInvitation.Text = "Inaugration Invitation"
-        ButtonInaugrationInvitation.UseVisualStyleBackColor = True
-        ' 
-        ' PictureThumbnailNewYear
-        ' 
-        PictureThumbnailNewYear.Image = My.Resources.Resources.Invite_1
-        PictureThumbnailNewYear.Location = New Point(1607, 579)
-        PictureThumbnailNewYear.Name = "PictureThumbnailNewYear"
-        PictureThumbnailNewYear.Size = New Size(252, 360)
-        PictureThumbnailNewYear.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureThumbnailNewYear.TabIndex = 28
-        PictureThumbnailNewYear.TabStop = False
-        ' 
-        ' PicturethumbnailInaugrationInvitation
-        ' 
-        PicturethumbnailInaugrationInvitation.Image = My.Resources.Resources.Invite_1
-        PicturethumbnailInaugrationInvitation.Location = New Point(1607, 86)
-        PicturethumbnailInaugrationInvitation.Name = "PicturethumbnailInaugrationInvitation"
-        PicturethumbnailInaugrationInvitation.Size = New Size(252, 360)
-        PicturethumbnailInaugrationInvitation.SizeMode = PictureBoxSizeMode.StretchImage
-        PicturethumbnailInaugrationInvitation.TabIndex = 27
-        PicturethumbnailInaugrationInvitation.TabStop = False
+        TabWallet.Font = New Font("Stencil", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        TabWallet.Location = New Point(4, 24)
+        TabWallet.Name = "TabWallet"
+        TabWallet.Padding = New Padding(3)
+        TabWallet.Size = New Size(1104, 559)
+        TabWallet.TabIndex = 3
+        TabWallet.Text = "Wallet"
+        TabWallet.UseVisualStyleBackColor = True
         ' 
         ' FormHome
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = My.Resources.Resources.New_Year_gifts
         ClientSize = New Size(1924, 1061)
