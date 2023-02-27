@@ -25,7 +25,7 @@ Public Class FormLogin
         conn.ConnectionString = "Data Source=DESKTOP-A26E0MD;Initial Catalog=SE_PROJECT;Integrated Security=True; "
         conn.Open()
         Try
-            Dim check As String = "SELECT * FROM table_user WHERE EMAIL = '" & TextBoxLogUsername.Text & "' AND PASSWORD = '" & TextBoxLogPassword.Text & " ' "
+            Dim check As String = "SELECT * FROM table_user WHERE EMAIL = '" & TextBoxLogEmail.Text & "' AND PASSWORD = '" & TextBoxLogPassword.Text & " ' "
             cmd = New SqlCommand(check, conn)
             Dim reader As SqlDataReader = cmd.ExecuteReader
 

@@ -31,7 +31,7 @@ Partial Class FormLogin
         PictureBoxLogPassword = New PictureBox()
         PictureBoxLogUsername = New PictureBox()
         TextBoxLogPassword = New TextBox()
-        TextBoxLogUsername = New TextBox()
+        TextBoxLogEmail = New TextBox()
         PictureBoxLoginPage = New PictureBox()
         CType(PictureBoxErrorLogPassword, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxErrorLogUsername, ComponentModel.ISupportInitialize).BeginInit()
@@ -141,16 +141,16 @@ Partial Class FormLogin
         TextBoxLogPassword.Size = New Size(342, 56)
         TextBoxLogPassword.TabIndex = 13
         ' 
-        ' TextBoxLogUsername
+        ' TextBoxLogEmail
         ' 
-        TextBoxLogUsername.Cursor = Cursors.Hand
-        TextBoxLogUsername.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxLogUsername.Location = New Point(770, 324)
-        TextBoxLogUsername.Margin = New Padding(3, 4, 3, 4)
-        TextBoxLogUsername.Name = "TextBoxLogUsername"
-        TextBoxLogUsername.PlaceholderText = "Gmail"
-        TextBoxLogUsername.Size = New Size(342, 56)
-        TextBoxLogUsername.TabIndex = 12
+        TextBoxLogEmail.Cursor = Cursors.Hand
+        TextBoxLogEmail.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxLogEmail.Location = New Point(770, 324)
+        TextBoxLogEmail.Margin = New Padding(3, 4, 3, 4)
+        TextBoxLogEmail.Name = "TextBoxLogEmail"
+        TextBoxLogEmail.PlaceholderText = "Gmail"
+        TextBoxLogEmail.Size = New Size(342, 56)
+        TextBoxLogEmail.TabIndex = 12
         ' 
         ' PictureBoxLoginPage
         ' 
@@ -177,7 +177,7 @@ Partial Class FormLogin
         Controls.Add(PictureBoxLogPassword)
         Controls.Add(PictureBoxLogUsername)
         Controls.Add(TextBoxLogPassword)
-        Controls.Add(TextBoxLogUsername)
+        Controls.Add(TextBoxLogEmail)
         Controls.Add(PictureBoxLoginPage)
         Margin = New Padding(3, 4, 3, 4)
         Name = "FormLogin"
@@ -200,6 +200,6 @@ Partial Class FormLogin
     Friend WithEvents PictureBoxLogPassword As PictureBox
     Friend WithEvents PictureBoxLogUsername As PictureBox
     Friend WithEvents TextBoxLogPassword As TextBox
-    Friend WithEvents TextBoxLogUsername As TextBox
+    Friend WithEvents TextBoxLogEmail As TextBox
     Friend WithEvents PictureBoxLoginPage As PictureBox
 End Class
