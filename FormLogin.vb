@@ -45,13 +45,7 @@ Public Class FormLogin
             MsgBox("MSSQL ERROR")
         End Try
 
-        'Dim count = Convert.ToInt32(cmd.ExecuteScalar())
-        'If count > 0 Then
-        MessageBox.Show("LOGIN SUCCESSFULL !!")
-        Me.Close()
-        FormChooseType.Show()
-        ' End If
-        'End Using
         conn.close()
+    
     End Sub
 End Class
