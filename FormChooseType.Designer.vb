@@ -46,6 +46,8 @@ Partial Class FormChooseType
         PictureBoxNewYear = New PictureBox()
         ButtonInaugration = New Button()
         PictureBoxInaugration = New PictureBox()
+        LabelChooseType = New Label()
+        ButtonMenu = New Button()
         CType(PictureBoxBithdayInvitation, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxValentine, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxRetirementWishing, ComponentModel.ISupportInitialize).BeginInit()
@@ -288,12 +290,36 @@ Partial Class FormChooseType
         PictureBoxInaugration.TabIndex = 20
         PictureBoxInaugration.TabStop = False
         ' 
+        ' LabelChooseType
+        ' 
+        LabelChooseType.AutoSize = True
+        LabelChooseType.BackColor = Color.Transparent
+        LabelChooseType.Font = New Font("Algerian", 26.25F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
+        LabelChooseType.Location = New Point(775, 79)
+        LabelChooseType.Name = "LabelChooseType"
+        LabelChooseType.Size = New Size(249, 39)
+        LabelChooseType.TabIndex = 24
+        LabelChooseType.Text = "Choose Type"
+        LabelChooseType.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' ButtonMenu
+        ' 
+        ButtonMenu.Location = New Point(59, 30)
+        ButtonMenu.Name = "ButtonMenu"
+        ButtonMenu.Size = New Size(75, 23)
+        ButtonMenu.TabIndex = 25
+        ButtonMenu.Text = "Menu"
+        ButtonMenu.UseVisualStyleBackColor = True
+        ' 
         ' FormChooseType
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = My.Resources.Resources.New_Year_gifts
+        BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(1924, 1061)
+        Controls.Add(ButtonMenu)
+        Controls.Add(LabelChooseType)
         Controls.Add(ButtonNewYear)
         Controls.Add(PictureBoxNewYear)
         Controls.Add(ButtonInaugration)
@@ -334,6 +360,7 @@ Partial Class FormChooseType
         CType(PictureBoxNewYear, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxInaugration, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents PictureBoxBithdayInvitation As PictureBox
@@ -360,4 +387,6 @@ Partial Class FormChooseType
     Friend WithEvents PictureBoxNewYear As PictureBox
     Friend WithEvents ButtonInaugration As Button
     Friend WithEvents PictureBoxInaugration As PictureBox
+    Friend WithEvents LabelChooseType As Label
+    Friend WithEvents ButtonMenu As Button
 End Class

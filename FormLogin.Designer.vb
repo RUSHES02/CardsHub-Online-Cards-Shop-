@@ -23,7 +23,7 @@ Partial Class FormLogin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         PictureBoxErrorLogPassword = New PictureBox()
-        PictureBoxErrorLogUsername = New PictureBox()
+        PictureBoxErrorLogEmail = New PictureBox()
         LabelNewUser = New Label()
         LabelLogin = New Label()
         ButtonRegisterPage = New Button()
@@ -32,52 +32,52 @@ Partial Class FormLogin
         PictureBoxLogUsername = New PictureBox()
         TextBoxLogPassword = New TextBox()
         TextBoxLogEmail = New TextBox()
-        PictureBoxLoginPage = New PictureBox()
         CType(PictureBoxErrorLogPassword, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBoxErrorLogUsername, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxErrorLogEmail, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxLogPassword, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxLogUsername, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBoxLoginPage, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureBoxErrorLogPassword
         ' 
+        PictureBoxErrorLogPassword.BackColor = Color.Transparent
         PictureBoxErrorLogPassword.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorLogPassword.Location = New Point(1144, 501)
-        PictureBoxErrorLogPassword.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorLogPassword.Location = New Point(483, 312)
         PictureBoxErrorLogPassword.Name = "PictureBoxErrorLogPassword"
-        PictureBoxErrorLogPassword.Size = New Size(23, 27)
+        PictureBoxErrorLogPassword.Size = New Size(20, 20)
         PictureBoxErrorLogPassword.TabIndex = 21
         PictureBoxErrorLogPassword.TabStop = False
         ' 
-        ' PictureBoxErrorLogUsername
+        ' PictureBoxErrorLogEmail
         ' 
-        PictureBoxErrorLogUsername.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorLogUsername.Location = New Point(1144, 344)
-        PictureBoxErrorLogUsername.Margin = New Padding(3, 4, 3, 4)
-        PictureBoxErrorLogUsername.Name = "PictureBoxErrorLogUsername"
-        PictureBoxErrorLogUsername.Size = New Size(23, 27)
-        PictureBoxErrorLogUsername.TabIndex = 20
-        PictureBoxErrorLogUsername.TabStop = False
+        PictureBoxErrorLogEmail.BackColor = Color.Transparent
+        PictureBoxErrorLogEmail.Image = My.Resources.Resources.icons8_cancel_20
+        PictureBoxErrorLogEmail.Location = New Point(483, 215)
+        PictureBoxErrorLogEmail.Name = "PictureBoxErrorLogEmail"
+        PictureBoxErrorLogEmail.Size = New Size(20, 20)
+        PictureBoxErrorLogEmail.TabIndex = 20
+        PictureBoxErrorLogEmail.TabStop = False
         ' 
         ' LabelNewUser
         ' 
         LabelNewUser.AutoSize = True
+        LabelNewUser.BackColor = Color.Transparent
         LabelNewUser.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelNewUser.Location = New Point(82, 533)
+        LabelNewUser.Location = New Point(844, 406)
         LabelNewUser.Name = "LabelNewUser"
-        LabelNewUser.Size = New Size(155, 37)
+        LabelNewUser.Size = New Size(120, 30)
         LabelNewUser.TabIndex = 19
-        LabelNewUser.Text = "New User??" ' 
+        LabelNewUser.Text = "New User??"' 
         ' LabelLogin
         ' 
         LabelLogin.AutoSize = True
-        LabelLogin.Font = New Font("Segoe UI", 24.0F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelLogin.Location = New Point(714, 148)
+        LabelLogin.BackColor = Color.Transparent
+        LabelLogin.Font = New Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelLogin.Location = New Point(84, 76)
         LabelLogin.Name = "LabelLogin"
-        LabelLogin.Size = New Size(122, 54)
+        LabelLogin.Size = New Size(99, 45)
         LabelLogin.TabIndex = 18
-        LabelLogin.Text = "Login" ' 
+        LabelLogin.Text = "Login"' 
         ' ButtonRegisterPage
         ' 
         ButtonRegisterPage.BackColor = Color.Fuchsia
@@ -85,10 +85,9 @@ Partial Class FormLogin
         ButtonRegisterPage.FlatStyle = FlatStyle.Popup
         ButtonRegisterPage.Font = New Font("Sitka Banner", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
         ButtonRegisterPage.ForeColor = SystemColors.ButtonHighlight
-        ButtonRegisterPage.Location = New Point(82, 577)
-        ButtonRegisterPage.Margin = New Padding(3, 4, 3, 4)
+        ButtonRegisterPage.Location = New Point(844, 439)
         ButtonRegisterPage.Name = "ButtonRegisterPage"
-        ButtonRegisterPage.Size = New Size(194, 67)
+        ButtonRegisterPage.Size = New Size(170, 50)
         ButtonRegisterPage.TabIndex = 17
         ButtonRegisterPage.Text = "Register"
         ButtonRegisterPage.UseVisualStyleBackColor = False
@@ -101,31 +100,30 @@ Partial Class FormLogin
         ButtonLogin.FlatStyle = FlatStyle.Popup
         ButtonLogin.Font = New Font("Sitka Banner", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
         ButtonLogin.ForeColor = SystemColors.ButtonHighlight
-        ButtonLogin.Location = New Point(843, 593)
-        ButtonLogin.Margin = New Padding(3, 4, 3, 4)
+        ButtonLogin.Location = New Point(164, 439)
         ButtonLogin.Name = "ButtonLogin"
-        ButtonLogin.Size = New Size(194, 67)
+        ButtonLogin.Size = New Size(170, 50)
         ButtonLogin.TabIndex = 16
         ButtonLogin.Text = "Login"
         ButtonLogin.UseVisualStyleBackColor = False
         ' 
         ' PictureBoxLogPassword
         ' 
+        PictureBoxLogPassword.BackColor = Color.Transparent
         PictureBoxLogPassword.Image = My.Resources.Resources.icons8_protonmail_48
-        PictureBoxLogPassword.Location = New Point(696, 481)
-        PictureBoxLogPassword.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxLogPassword.Location = New Point(58, 302)
         PictureBoxLogPassword.Name = "PictureBoxLogPassword"
-        PictureBoxLogPassword.Size = New Size(57, 67)
+        PictureBoxLogPassword.Size = New Size(50, 50)
         PictureBoxLogPassword.TabIndex = 15
         PictureBoxLogPassword.TabStop = False
         ' 
         ' PictureBoxLogUsername
         ' 
-        PictureBoxLogUsername.Image = My.Resources.Resources.icons8_username_50
-        PictureBoxLogUsername.Location = New Point(696, 319)
-        PictureBoxLogUsername.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxLogUsername.BackColor = Color.Transparent
+        PictureBoxLogUsername.Image = My.Resources.Resources.icons8_secured_letter_48
+        PictureBoxLogUsername.Location = New Point(58, 197)
         PictureBoxLogUsername.Name = "PictureBoxLogUsername"
-        PictureBoxLogUsername.Size = New Size(57, 67)
+        PictureBoxLogUsername.Size = New Size(50, 50)
         PictureBoxLogUsername.TabIndex = 14
         PictureBoxLogUsername.TabStop = False
         ' 
@@ -133,43 +131,32 @@ Partial Class FormLogin
         ' 
         TextBoxLogPassword.Cursor = Cursors.Hand
         TextBoxLogPassword.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxLogPassword.Location = New Point(770, 487)
-        TextBoxLogPassword.Margin = New Padding(3, 4, 3, 4)
+        TextBoxLogPassword.Location = New Point(137, 302)
         TextBoxLogPassword.Name = "TextBoxLogPassword"
         TextBoxLogPassword.PasswordChar = "*"c
         TextBoxLogPassword.PlaceholderText = "Password"
-        TextBoxLogPassword.Size = New Size(342, 56)
+        TextBoxLogPassword.Size = New Size(300, 46)
         TextBoxLogPassword.TabIndex = 13
         ' 
         ' TextBoxLogEmail
         ' 
         TextBoxLogEmail.Cursor = Cursors.Hand
         TextBoxLogEmail.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxLogEmail.Location = New Point(770, 324)
-        TextBoxLogEmail.Margin = New Padding(3, 4, 3, 4)
+        TextBoxLogEmail.Location = New Point(137, 201)
         TextBoxLogEmail.Name = "TextBoxLogEmail"
         TextBoxLogEmail.PlaceholderText = "Gmail"
-        TextBoxLogEmail.Size = New Size(342, 56)
+        TextBoxLogEmail.Size = New Size(300, 46)
         TextBoxLogEmail.TabIndex = 12
-        ' 
-        ' PictureBoxLoginPage
-        ' 
-        PictureBoxLoginPage.Image = My.Resources.Resources.stock_market_traders_data_provider_1000x1000
-        PictureBoxLoginPage.Location = New Point(1, -4)
-        PictureBoxLoginPage.Margin = New Padding(3, 4, 3, 4)
-        PictureBoxLoginPage.Name = "PictureBoxLoginPage"
-        PictureBoxLoginPage.Size = New Size(653, 695)
-        PictureBoxLoginPage.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBoxLoginPage.TabIndex = 11
-        PictureBoxLoginPage.TabStop = False
         ' 
         ' FormLogin
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1212, 748)
+        BackgroundImage = My.Resources.Resources.New_Year_gifts
+        BackgroundImageLayout = ImageLayout.Stretch
+        ClientSize = New Size(1064, 521)
         Controls.Add(PictureBoxErrorLogPassword)
-        Controls.Add(PictureBoxErrorLogUsername)
+        Controls.Add(PictureBoxErrorLogEmail)
         Controls.Add(LabelNewUser)
         Controls.Add(LabelLogin)
         Controls.Add(ButtonRegisterPage)
@@ -178,21 +165,21 @@ Partial Class FormLogin
         Controls.Add(PictureBoxLogUsername)
         Controls.Add(TextBoxLogPassword)
         Controls.Add(TextBoxLogEmail)
-        Controls.Add(PictureBoxLoginPage)
-        Margin = New Padding(3, 4, 3, 4)
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "FormLogin"
+        SizeGripStyle = SizeGripStyle.Hide
+        StartPosition = FormStartPosition.CenterScreen
         Text = "FormLogin"
         CType(PictureBoxErrorLogPassword, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBoxErrorLogUsername, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxErrorLogEmail, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxLogPassword, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxLogUsername, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBoxLoginPage, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents PictureBoxErrorLogPassword As PictureBox
-    Friend WithEvents PictureBoxErrorLogUsername As PictureBox
+    Friend WithEvents PictureBoxErrorLogEmail As PictureBox
     Friend WithEvents LabelNewUser As Label
     Friend WithEvents LabelLogin As Label
     Friend WithEvents ButtonRegisterPage As Button
@@ -201,5 +188,4 @@ Partial Class FormLogin
     Friend WithEvents PictureBoxLogUsername As PictureBox
     Friend WithEvents TextBoxLogPassword As TextBox
     Friend WithEvents TextBoxLogEmail As TextBox
-    Friend WithEvents PictureBoxLoginPage As PictureBox
 End Class

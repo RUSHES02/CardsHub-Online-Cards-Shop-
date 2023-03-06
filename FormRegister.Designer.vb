@@ -60,51 +60,46 @@ Partial Class FormRegister
         ' TextBoxRegPhoneNo
         ' 
         TextBoxRegPhoneNo.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxRegPhoneNo.Location = New Point(131, 191)
-        TextBoxRegPhoneNo.Margin = New Padding(3, 4, 3, 4)
+        TextBoxRegPhoneNo.Location = New Point(115, 143)
         TextBoxRegPhoneNo.Name = "TextBoxRegPhoneNo"
         TextBoxRegPhoneNo.PlaceholderText = "Phone No."
-        TextBoxRegPhoneNo.Size = New Size(342, 56)
+        TextBoxRegPhoneNo.Size = New Size(300, 46)
         TextBoxRegPhoneNo.TabIndex = 5
         ' 
         ' TextBoxRegFullName
         ' 
         TextBoxRegFullName.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxRegFullName.Location = New Point(134, 107)
-        TextBoxRegFullName.Margin = New Padding(3, 4, 3, 4)
+        TextBoxRegFullName.Location = New Point(117, 80)
         TextBoxRegFullName.Name = "TextBoxRegFullName"
         TextBoxRegFullName.PlaceholderText = "Full Name"
-        TextBoxRegFullName.Size = New Size(342, 56)
+        TextBoxRegFullName.Size = New Size(300, 46)
         TextBoxRegFullName.TabIndex = 6
         ' 
         ' TextBoxRegPassword
         ' 
         TextBoxRegPassword.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxRegPassword.Location = New Point(131, 679)
-        TextBoxRegPassword.Margin = New Padding(3, 4, 3, 4)
+        TextBoxRegPassword.Location = New Point(115, 509)
         TextBoxRegPassword.Name = "TextBoxRegPassword"
         TextBoxRegPassword.PasswordChar = "*"c
         TextBoxRegPassword.PlaceholderText = "Password"
-        TextBoxRegPassword.Size = New Size(342, 56)
+        TextBoxRegPassword.Size = New Size(300, 46)
         TextBoxRegPassword.TabIndex = 7
         ' 
         ' TextBoxRegEmail
         ' 
         TextBoxRegEmail.Font = New Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxRegEmail.Location = New Point(131, 556)
-        TextBoxRegEmail.Margin = New Padding(3, 4, 3, 4)
+        TextBoxRegEmail.Location = New Point(115, 417)
         TextBoxRegEmail.Name = "TextBoxRegEmail"
         TextBoxRegEmail.PlaceholderText = "Email"
-        TextBoxRegEmail.Size = New Size(342, 56)
+        TextBoxRegEmail.Size = New Size(300, 46)
         TextBoxRegEmail.TabIndex = 8
         ' 
         ' RadioButtonMale
         ' 
         RadioButtonMale.AutoSize = True
-        RadioButtonMale.Location = New Point(139, 373)
-        RadioButtonMale.Margin = New Padding(3, 4, 3, 4)
+        RadioButtonMale.Location = New Point(122, 280)
         RadioButtonMale.Name = "RadioButtonMale"
-        RadioButtonMale.Size = New Size(63, 24)
+        RadioButtonMale.Size = New Size(51, 19)
         RadioButtonMale.TabIndex = 9
         RadioButtonMale.TabStop = True
         RadioButtonMale.Text = "Male"
@@ -113,10 +108,9 @@ Partial Class FormRegister
         ' RadioButtonFemale
         ' 
         RadioButtonFemale.AutoSize = True
-        RadioButtonFemale.Location = New Point(316, 373)
-        RadioButtonFemale.Margin = New Padding(3, 4, 3, 4)
+        RadioButtonFemale.Location = New Point(276, 280)
         RadioButtonFemale.Name = "RadioButtonFemale"
-        RadioButtonFemale.Size = New Size(78, 24)
+        RadioButtonFemale.Size = New Size(63, 19)
         RadioButtonFemale.TabIndex = 10
         RadioButtonFemale.TabStop = True
         RadioButtonFemale.Text = "Female"
@@ -124,10 +118,9 @@ Partial Class FormRegister
         ' 
         ' DateTimePickerDOB
         ' 
-        DateTimePickerDOB.Location = New Point(230, 465)
-        DateTimePickerDOB.Margin = New Padding(3, 4, 3, 4)
+        DateTimePickerDOB.Location = New Point(201, 349)
         DateTimePickerDOB.Name = "DateTimePickerDOB"
-        DateTimePickerDOB.Size = New Size(228, 27)
+        DateTimePickerDOB.Size = New Size(200, 23)
         DateTimePickerDOB.TabIndex = 11
         DateTimePickerDOB.Value = New DateTime(2005, 1, 1, 0, 0, 0, 0)
         ' 
@@ -138,10 +131,9 @@ Partial Class FormRegister
         ButtonRegister.FlatStyle = FlatStyle.Popup
         ButtonRegister.Font = New Font("Sitka Banner", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
         ButtonRegister.ForeColor = SystemColors.ButtonHighlight
-        ButtonRegister.Location = New Point(209, 768)
-        ButtonRegister.Margin = New Padding(3, 4, 3, 4)
+        ButtonRegister.Location = New Point(183, 576)
         ButtonRegister.Name = "ButtonRegister"
-        ButtonRegister.Size = New Size(194, 67)
+        ButtonRegister.Size = New Size(170, 50)
         ButtonRegister.TabIndex = 12
         ButtonRegister.Text = "Register"
         ButtonRegister.UseVisualStyleBackColor = False
@@ -150,146 +142,147 @@ Partial Class FormRegister
         ' 
         LabelGender.AutoSize = True
         LabelGender.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelGender.Location = New Point(131, 309)
+        LabelGender.Location = New Point(115, 232)
         LabelGender.Name = "LabelGender"
-        LabelGender.Size = New Size(104, 37)
+        LabelGender.Size = New Size(80, 30)
         LabelGender.TabIndex = 14
         LabelGender.Text = "Gender"' 
         ' LabelRegisteration
         ' 
         LabelRegisteration.AutoSize = True
         LabelRegisteration.Font = New Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelRegisteration.Location = New Point(29, 25)
+        LabelRegisteration.Location = New Point(25, 19)
         LabelRegisteration.Name = "LabelRegisteration"
-        LabelRegisteration.Size = New Size(257, 54)
+        LabelRegisteration.Size = New Size(207, 45)
         LabelRegisteration.TabIndex = 15
         LabelRegisteration.Text = "Registeration"' 
         ' LabelDOB
         ' 
         LabelDOB.AutoSize = True
         LabelDOB.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelDOB.Location = New Point(131, 455)
+        LabelDOB.Location = New Point(115, 341)
         LabelDOB.Name = "LabelDOB"
-        LabelDOB.Size = New Size(71, 37)
+        LabelDOB.Size = New Size(56, 30)
         LabelDOB.TabIndex = 16
         LabelDOB.Text = "DOB"
         LabelDOB.TextAlign = ContentAlignment.TopCenter
         ' 
         ' PictureBoxRegFullName
         ' 
+        PictureBoxRegFullName.BackColor = Color.Transparent
         PictureBoxRegFullName.Image = My.Resources.Resources.icons8_customer_48
-        PictureBoxRegFullName.Location = New Point(48, 101)
-        PictureBoxRegFullName.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxRegFullName.Location = New Point(42, 76)
         PictureBoxRegFullName.Name = "PictureBoxRegFullName"
-        PictureBoxRegFullName.Size = New Size(57, 67)
+        PictureBoxRegFullName.Size = New Size(50, 50)
         PictureBoxRegFullName.TabIndex = 17
         PictureBoxRegFullName.TabStop = False
         ' 
         ' PictureBoxRegPhoneNo
         ' 
+        PictureBoxRegPhoneNo.BackColor = Color.Transparent
         PictureBoxRegPhoneNo.Image = My.Resources.Resources.icons8_phone_50
-        PictureBoxRegPhoneNo.Location = New Point(48, 191)
-        PictureBoxRegPhoneNo.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxRegPhoneNo.Location = New Point(42, 143)
         PictureBoxRegPhoneNo.Name = "PictureBoxRegPhoneNo"
-        PictureBoxRegPhoneNo.Size = New Size(57, 67)
+        PictureBoxRegPhoneNo.Size = New Size(50, 50)
         PictureBoxRegPhoneNo.TabIndex = 18
         PictureBoxRegPhoneNo.TabStop = False
         ' 
         ' PictureBoxRegEmail
         ' 
+        PictureBoxRegEmail.BackColor = Color.Transparent
         PictureBoxRegEmail.Image = My.Resources.Resources.icons8_secured_letter_48
-        PictureBoxRegEmail.Location = New Point(48, 556)
-        PictureBoxRegEmail.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxRegEmail.Location = New Point(42, 417)
         PictureBoxRegEmail.Name = "PictureBoxRegEmail"
-        PictureBoxRegEmail.Size = New Size(57, 67)
+        PictureBoxRegEmail.Size = New Size(50, 50)
         PictureBoxRegEmail.TabIndex = 21
         PictureBoxRegEmail.TabStop = False
         ' 
         ' PictureBoxRegPassword
         ' 
+        PictureBoxRegPassword.BackColor = Color.Transparent
         PictureBoxRegPassword.Image = My.Resources.Resources.icons8_protonmail_48
-        PictureBoxRegPassword.Location = New Point(48, 679)
-        PictureBoxRegPassword.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxRegPassword.Location = New Point(42, 509)
         PictureBoxRegPassword.Name = "PictureBoxRegPassword"
-        PictureBoxRegPassword.Size = New Size(57, 67)
+        PictureBoxRegPassword.Size = New Size(50, 50)
         PictureBoxRegPassword.TabIndex = 22
         PictureBoxRegPassword.TabStop = False
         ' 
         ' PictureBoxRegDOB
         ' 
+        PictureBoxRegDOB.BackColor = Color.Transparent
         PictureBoxRegDOB.Image = My.Resources.Resources.icons8_birth_date_50
-        PictureBoxRegDOB.Location = New Point(48, 443)
-        PictureBoxRegDOB.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxRegDOB.Location = New Point(42, 332)
         PictureBoxRegDOB.Name = "PictureBoxRegDOB"
-        PictureBoxRegDOB.Size = New Size(57, 67)
+        PictureBoxRegDOB.Size = New Size(50, 50)
         PictureBoxRegDOB.TabIndex = 23
         PictureBoxRegDOB.TabStop = False
         ' 
         ' PictureBoxErrorRegFullName
         ' 
+        PictureBoxErrorRegFullName.BackColor = Color.Transparent
         PictureBoxErrorRegFullName.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorRegFullName.Location = New Point(503, 124)
-        PictureBoxErrorRegFullName.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorRegFullName.Location = New Point(440, 93)
         PictureBoxErrorRegFullName.Name = "PictureBoxErrorRegFullName"
-        PictureBoxErrorRegFullName.Size = New Size(23, 27)
+        PictureBoxErrorRegFullName.Size = New Size(20, 20)
         PictureBoxErrorRegFullName.TabIndex = 24
         PictureBoxErrorRegFullName.TabStop = False
         ' 
         ' PictureBoxErrorRegPhoneNo
         ' 
+        PictureBoxErrorRegPhoneNo.BackColor = Color.Transparent
         PictureBoxErrorRegPhoneNo.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorRegPhoneNo.Location = New Point(503, 215)
-        PictureBoxErrorRegPhoneNo.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorRegPhoneNo.Location = New Point(440, 161)
         PictureBoxErrorRegPhoneNo.Name = "PictureBoxErrorRegPhoneNo"
-        PictureBoxErrorRegPhoneNo.Size = New Size(23, 27)
+        PictureBoxErrorRegPhoneNo.Size = New Size(20, 20)
         PictureBoxErrorRegPhoneNo.TabIndex = 25
         PictureBoxErrorRegPhoneNo.TabStop = False
         ' 
         ' PictureBoxErrorRegGender
         ' 
+        PictureBoxErrorRegGender.BackColor = Color.Transparent
         PictureBoxErrorRegGender.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorRegGender.Location = New Point(503, 370)
-        PictureBoxErrorRegGender.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorRegGender.Location = New Point(440, 278)
         PictureBoxErrorRegGender.Name = "PictureBoxErrorRegGender"
-        PictureBoxErrorRegGender.Size = New Size(23, 27)
+        PictureBoxErrorRegGender.Size = New Size(20, 20)
         PictureBoxErrorRegGender.TabIndex = 27
         PictureBoxErrorRegGender.TabStop = False
         ' 
         ' PictureBoxErrorRegDOB
         ' 
+        PictureBoxErrorRegDOB.BackColor = Color.Transparent
         PictureBoxErrorRegDOB.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorRegDOB.Location = New Point(503, 465)
-        PictureBoxErrorRegDOB.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorRegDOB.Location = New Point(440, 349)
         PictureBoxErrorRegDOB.Name = "PictureBoxErrorRegDOB"
-        PictureBoxErrorRegDOB.Size = New Size(23, 27)
+        PictureBoxErrorRegDOB.Size = New Size(20, 20)
         PictureBoxErrorRegDOB.TabIndex = 28
         PictureBoxErrorRegDOB.TabStop = False
         ' 
         ' PictureBoxErrorRegEmail
         ' 
+        PictureBoxErrorRegEmail.BackColor = Color.Transparent
         PictureBoxErrorRegEmail.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorRegEmail.Location = New Point(503, 570)
-        PictureBoxErrorRegEmail.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorRegEmail.Location = New Point(440, 428)
         PictureBoxErrorRegEmail.Name = "PictureBoxErrorRegEmail"
-        PictureBoxErrorRegEmail.Size = New Size(23, 27)
+        PictureBoxErrorRegEmail.Size = New Size(20, 20)
         PictureBoxErrorRegEmail.TabIndex = 30
         PictureBoxErrorRegEmail.TabStop = False
         ' 
         ' PictureBoxErrorRegPassword
         ' 
+        PictureBoxErrorRegPassword.BackColor = Color.Transparent
         PictureBoxErrorRegPassword.Image = My.Resources.Resources.icons8_cancel_20
-        PictureBoxErrorRegPassword.Location = New Point(503, 697)
-        PictureBoxErrorRegPassword.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxErrorRegPassword.Location = New Point(440, 523)
         PictureBoxErrorRegPassword.Name = "PictureBoxErrorRegPassword"
-        PictureBoxErrorRegPassword.Size = New Size(23, 27)
+        PictureBoxErrorRegPassword.Size = New Size(20, 20)
         PictureBoxErrorRegPassword.TabIndex = 31
         PictureBoxErrorRegPassword.TabStop = False
         ' 
         ' FormRegister
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(617, 873)
+        BackColor = Color.White
+        ClientSize = New Size(540, 655)
         Controls.Add(PictureBoxErrorRegPassword)
         Controls.Add(PictureBoxErrorRegEmail)
         Controls.Add(PictureBoxErrorRegDOB)
@@ -312,8 +305,7 @@ Partial Class FormRegister
         Controls.Add(TextBoxRegPassword)
         Controls.Add(TextBoxRegFullName)
         Controls.Add(TextBoxRegPhoneNo)
-        FormBorderStyle = FormBorderStyle.FixedSingle
-        Margin = New Padding(3, 4, 3, 4)
+        FormBorderStyle = FormBorderStyle.Fixed3D
         Name = "FormRegister"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormRegister"
