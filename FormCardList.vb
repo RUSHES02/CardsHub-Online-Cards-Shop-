@@ -49,7 +49,7 @@ Public Class FormCardList
     'button to go to order history page
     Private Sub PictureBoxOrderHistory_Click(sender As Object, e As EventArgs) Handles PictureBoxOrderHistory.Click
         Me.Close()
-        FormOrderHistory.Show()
+        ' FormOrderHistory.Show()
     End Sub
 
     'applying type filter to the card list

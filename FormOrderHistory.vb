@@ -71,18 +71,18 @@ Public Class FormOrderHistory
     End Sub
 
     'to check todays date
-    Private Sub TimerOrderHistory_Tick(sender As Object, e As EventArgs) Handles TimerOrderHistory.Tick
+    Private Sub TimerOrderHistory_Tick(sender As Object, e As EventArgs)
         today = Date.Now.ToString("dd MMM yyyy")
     End Sub
 
     'for back button
-    Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs) Handles PictureBoxBack.Click
+    Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs)
         Me.Close()
         FormCardList.Show()
     End Sub
 
     'checking if anu item is selected in the combo box and setting the search box accordingly
-    Private Sub ComboBoxSearchCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSearchCategory.SelectedIndexChanged
+    Private Sub ComboBoxSearchCategory_SelectedIndexChanged(sender As Object, e As EventArgs)
         If ComboBoxSearchCategory.SelectedItem = "Name" Then
             TextBoxSearch.Visible = True
             LabelSearch.Visible = True
@@ -104,7 +104,7 @@ Public Class FormOrderHistory
     End Sub
 
     'checking and searching through the order history
-    Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
+    Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs)
         FlowLayoutOrderHistory.Controls.Clear()
         conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
         conn.Open()
