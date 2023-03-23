@@ -21,9 +21,6 @@ Public Class FormAdminCards
     Dim panelHeight As Double                                        'variable to store the width of a indivisual panel
 
     Private Sub FormAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'disabling card not faound alert
-        LabelNotFound.Visible = False
-
         'setting all the dimention of flow layout and indivisual panels
         flowLayoutWidth = (totalwidth * (6 / 7)) - 30
         FlowLayoutAdmin.Size = New Size(flowLayoutWidth, totalheight - 250)
@@ -39,6 +36,7 @@ Public Class FormAdminCards
 
         'adding all cards to the flow layout
         enterAllCards()
+        LabelNotFound.Visible = False
 
     End Sub
 
@@ -127,7 +125,6 @@ Public Class FormAdminCards
                     createCardLabelQuantity(currentPanel, reader.Item("Quantity"))
                     createCardButtonAlter(currentPanel)
                 Else
-                    'card not faound alert if no card exits of the enterd id
                     LabelNotFound.Visible = True
                 End If
                 conn.Close()
@@ -157,13 +154,6 @@ Public Class FormAdminCards
             createCardButtonAlter(currentPanel)
         End While
         conn.Close()
-    End Sub
-
-    'check that only numbers are enterd in the search id
-    Private Sub PanelSearchById_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles PanelSearchById.KeyPress
-        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
-            e.Handled = True
-        End If
     End Sub
 
     'creating and adding panel to the flow layout

@@ -49,7 +49,7 @@ Public Class FormCardList
     'button to go to order history page
     Private Sub PictureBoxOrderHistory_Click(sender As Object, e As EventArgs) Handles PictureBoxOrderHistory.Click
         Me.Close()
-        ' FormOrderHistory.Show()
+        FormOrderHistory.Show()
     End Sub
 
     'applying type filter to the card list
@@ -169,6 +169,7 @@ Public Class FormCardList
             conn.Close()
         Next
     End Sub
+
     'to enter all cards from the database
     Public Sub enterAllCards()
         conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
