@@ -53,6 +53,18 @@ Public Class FormRegister
         End If
     End Sub
 
+    Private Sub ButtonBack_Click(sender As Object, e As EventArgs) Handles ButtonBack.Click
+        Me.Close()
+        FormLogin.Show()
+    End Sub
+
+    'to check only numbers are being enterd in the quantity text box
+    Private Sub TextBoxRegPhoneNo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxRegPhoneNo.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
     'function to the check the name field
     Private Function checkName() As Boolean
         If (fullname = "") Then
@@ -68,15 +80,6 @@ Public Class FormRegister
         If (phone.Length <> 10) Then
             PictureBoxErrorRegPhoneNo.Visible = True
             Return False
-
-            'cj=hecking if the all the characters are numbers
-        Else
-            For Each c As Char In phone
-                If (IsNumeric(c) = False) Then
-                    PictureBoxErrorRegPhoneNo.Visible = True
-                    Return False
-                End If
-            Next
         End If
         Return True
     End Function
@@ -106,8 +109,10 @@ Public Class FormRegister
             Return False
         End If
 
+        'setting and running sql query to fetch email if any
         conn.ConnectionString = ("Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;")
-        cmd = New SqlCommand("SELECT Email FROM TableUser WHERE Email = '" & email & "'", conn)
+        cmd = New SqlCommand("SELECT Email FROM TableUser WHERE Email = @email", conn)
+        cmd.Parameters.AddWithValue("@email", email)
         conn.Open()
         Dim reader As SqlDataReader = cmd.ExecuteReader
 
@@ -115,7 +120,7 @@ Public Class FormRegister
         If reader.Read Then
             Return False
         End If
-
+        conn.Close()
         Return True
     End Function
 
@@ -130,10 +135,16 @@ Public Class FormRegister
 
     'function to register the users to the database
     Private Sub RegisterInDb()
-        'setting the sql connection
+        'setting the sql connection and running query to insert all the details
         conn.ConnectionString = ("Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;")
-        cmd = New SqlCommand("INSERT INTO TableUser(Name, Phone, Gender, DOB, Email, Password) VALUES ('" & fullname & "' ,'" & phone & "' ,'" & gender & "' , '" & dob & "' ,'" & email & "' , '" & password & "' )", conn)
         conn.Open()
+        cmd = New SqlCommand("INSERT INTO TableUser(Name, Phone, Gender, DOB, Email, Password) VALUES (@name, @phone, @gender, @dob, @email, @password)", conn)
+        cmd.Parameters.AddWithValue("@name", fullname)
+        cmd.Parameters.AddWithValue("@phone", phone)
+        cmd.Parameters.AddWithValue("@gender", gender)
+        cmd.Parameters.AddWithValue("@dob", dob)
+        cmd.Parameters.AddWithValue("@email", email)
+        cmd.Parameters.AddWithValue("@password", password)
         cmd.ExecuteNonQuery()
         MsgBox("SUCCESSFULLY REGISTERED ", MsgBoxStyle.Information, "Success")
         conn.Close()

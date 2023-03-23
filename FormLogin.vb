@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class FormLogin
 
@@ -17,7 +18,7 @@ Public Class FormLogin
         userlogin()
     End Sub
 
-    Private Sub ButtonRegisterPage_Click(sender As Object, e As EventArgs) Handles ButtonRegisterPage.Click
+    Private Sub LabelCreateAccount_Click(sender As Object, e As EventArgs) Handles LabelCreateAccount.Click
         'opening registeration page
         Me.Hide()
         FormRegister.Show()
@@ -32,7 +33,7 @@ Public Class FormLogin
         If (email = "admin@gmail.com" And password = "Admin123") Then
             logedInEmail = email
             Me.Hide()
-            FormAdmin.Show()
+            FormAdminCards.Show()
             Return
         End If
 
@@ -56,7 +57,7 @@ Public Class FormLogin
                 If (sqlPassword = password) Then
                     logedInEmail = email
                     Me.Hide()
-                    FormChooseType.Show()
+                    FormCardList.Show()
 
                     'if the password is incorrect
                 Else
@@ -74,4 +75,6 @@ Public Class FormLogin
         End Try
         conn.Close()
     End Sub
+
+
 End Class
