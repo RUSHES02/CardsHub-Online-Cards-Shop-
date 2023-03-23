@@ -47,6 +47,7 @@ Public Class FormAdminCardEdit
             TextBoxName.Text = reader.Item("Name")
             conn.Close()
         End If
+        alterUid = 0
     End Sub
 
     'button to browse images for cards
