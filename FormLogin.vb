@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class FormLogin
@@ -78,3 +78,4 @@ Public Class FormLogin
 
 
 End Class
+

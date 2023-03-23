@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 
 Public Class FormRegister
 
@@ -152,4 +152,5 @@ Public Class FormRegister
         Me.Close()
         FormLogin.Show()
     End Sub
+
 End Class

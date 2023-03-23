@@ -1,4 +1,4 @@
-﻿Imports System.IO
+Imports System.IO
 Imports System.Data.SqlClient
 Imports System.Runtime.Intrinsics
 

@@ -1,9 +1,9 @@
 
-CardHub 
+CardsHub 
 ------------------------------
 
 Introduction :
-CardHub is an app which provides exclusive designs for various types of cards like wedding invitation card, birthday wishing card etc.
+CardsHub is an app which provides exclusive designs for various types of cards like wedding invitation card, birthday wishing card etc.
 
 About the Project:
 The  CardHub management system project in VB.NET is a computerized system that manages the creation, design, and distribution of invitation and wishing cards. It is an efficient and easy-to-use system that helps users to create and manage invitation/wishing cards for various events such as weddings, birthdays, and other social gatherings.
