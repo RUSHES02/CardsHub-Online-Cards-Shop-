@@ -71,14 +71,20 @@ Public Class FormOrderHistory
     End Sub
 
     'to check todays date
-    Private Sub TimerOrderHistory_Tick(sender As Object, e As EventArgs)
+    Private Sub TimerOrderHistory_Tick(sender As Object, e As EventArgs) Handles TimerOrderHistory.Tick
         today = Date.Now.ToString("dd MMM yyyy")
     End Sub
 
     'for back button
-    Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs)
-        Me.Close()
-        FormCardList.Show()
+    Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs) Handles PictureBoxBack.Click
+        If logedInEmail = "admin@gmail.com" Then
+            Me.Close()
+            FormAdminCards.Show()
+        Else
+            Me.Close()
+            FormCardList.Show()
+        End If
+
     End Sub
 
     'checking if anu item is selected in the combo box and setting the search box accordingly
@@ -104,7 +110,7 @@ Public Class FormOrderHistory
     End Sub
 
     'checking and searching through the order history
-    Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs)
+    Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
         FlowLayoutOrderHistory.Controls.Clear()
         conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
         conn.Open()

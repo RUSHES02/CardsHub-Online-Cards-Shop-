@@ -34,7 +34,6 @@ Partial Class FormAdminCards
         PictureBoxAddNew = New PictureBox()
         PictureBoxOrderHistory = New PictureBox()
         PictureBoxBack = New PictureBox()
-        FolderBrowserDialog1 = New FolderBrowserDialog()
         LabelAddNewCard = New Label()
         LabelOrderHistory = New Label()
         PictureBoxBanner = New PictureBox()
@@ -263,7 +262,6 @@ Partial Class FormAdminCards
     Friend WithEvents PictureBoxAddNew As PictureBox
     Friend WithEvents PictureBoxOrderHistory As PictureBox
     Friend WithEvents PictureBoxBack As PictureBox
-    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents PanelSearchById As Panel
     Friend WithEvents LabelSearchById As Label
     Friend WithEvents PictureBoxSearchId As PictureBox
