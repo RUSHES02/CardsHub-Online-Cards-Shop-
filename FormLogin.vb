@@ -76,6 +76,8 @@ Public Class FormLogin
         conn.Close()
     End Sub
 
-
+    Private Sub FormLogin_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Close()
+    End Sub
 End Class
 

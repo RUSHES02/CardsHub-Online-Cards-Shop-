@@ -37,7 +37,8 @@ Partial Class FormOrderHistory
         ' FlowLayoutOrderHistory
         ' 
         FlowLayoutOrderHistory.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        FlowLayoutOrderHistory.BackColor = Color.White
+        FlowLayoutOrderHistory.AutoScroll = True
+        FlowLayoutOrderHistory.BackColor = Color.Silver
         FlowLayoutOrderHistory.Location = New Point(3, 175)
         FlowLayoutOrderHistory.Name = "FlowLayoutOrderHistory"
         FlowLayoutOrderHistory.Size = New Size(1302, 366)
@@ -97,6 +98,9 @@ Partial Class FormOrderHistory
         TextBoxSearch.Name = "TextBoxSearch"
         TextBoxSearch.Size = New Size(135, 26)
         TextBoxSearch.TabIndex = 59
+        ' 
+        ' TimerOrderHistory
+        ' 
         ' 
         ' FormOrderHistory
         ' 

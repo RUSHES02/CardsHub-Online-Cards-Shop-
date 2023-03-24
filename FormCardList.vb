@@ -25,7 +25,7 @@ Public Class FormCardList
 
         'setting all the dimention of flow layout and indivisual panels
         flowLayoutWidth = (totalwidth * (6 / 7)) - 30
-        FlowLayoutCardList.Size = New Size(flowLayoutWidth, totalheight - 250)
+        FlowLayoutCardList.Size = New Size(flowLayoutWidth, 750)
         FlowLayoutCardList.Location = New Point((totalwidth / 7) + 30, 250)
         PanelSidePane.Size = New Size((totalwidth / 7), totalheight)
         PanelSidePane.Location = New Point(0, 250)
@@ -142,6 +142,7 @@ Public Class FormCardList
 
     End Sub
 
+    'to all the cards in the database which are of the selected type
     Public Sub enterAllCardsOfType()
         FlowLayoutCardList.Controls.Clear()
         For Each item In CheckedListBoxFilter.CheckedItems
@@ -317,5 +318,9 @@ Public Class FormCardList
         selectCardUid = Convert.ToDecimal(cardId)
         Me.Hide()
         FormCardPage.Show()
+    End Sub
+
+    Private Sub FormCardList_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormLogin.Show()
     End Sub
 End Class

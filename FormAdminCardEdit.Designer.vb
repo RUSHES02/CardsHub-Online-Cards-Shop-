@@ -53,7 +53,7 @@ Partial Class FormAdminCardEdit
         PictureBoxImageTemplate.Location = New Point(63, 87)
         PictureBoxImageTemplate.Name = "PictureBoxImageTemplate"
         PictureBoxImageTemplate.Size = New Size(332, 465)
-        PictureBoxImageTemplate.SizeMode = PictureBoxSizeMode.CenterImage
+        PictureBoxImageTemplate.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxImageTemplate.TabIndex = 0
         PictureBoxImageTemplate.TabStop = False
         ' 

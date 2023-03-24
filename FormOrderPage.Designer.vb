@@ -57,6 +57,8 @@ Partial Class FormOrderPage
         LabelTagDiscountPrice = New Label()
         LabelTagMRP = New Label()
         PanelPayment = New Panel()
+        PictureBoxErrorUPI = New PictureBox()
+        PictureBoxErrorPaymentMode = New PictureBox()
         LabelUPIOrCard = New Label()
         TextBox1UPIOrCard = New TextBox()
         LabelTransactionMode = New Label()
@@ -66,7 +68,6 @@ Partial Class FormOrderPage
         ButtonConfirmOrder = New Button()
         TimerDeliveryDate = New Timer(components)
         LabelOrderDetails = New Label()
-        PictureBoxErrorPaymentMode = New PictureBox()
         PanelOrderPageBackground.SuspendLayout()
         CType(PictureBoxErrorPincode, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxErrorLandmark, ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +78,7 @@ Partial Class FormOrderPage
         CType(PictureBoxErrorName, ComponentModel.ISupportInitialize).BeginInit()
         PanelPrice.SuspendLayout()
         PanelPayment.SuspendLayout()
+        CType(PictureBoxErrorUPI, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxErrorPaymentMode, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -414,6 +416,7 @@ Partial Class FormOrderPage
         ' PanelPayment
         ' 
         PanelPayment.BackColor = Color.FromArgb(CByte(191), CByte(215), CByte(255))
+        PanelPayment.Controls.Add(PictureBoxErrorUPI)
         PanelPayment.Controls.Add(PictureBoxErrorPaymentMode)
         PanelPayment.Controls.Add(LabelUPIOrCard)
         PanelPayment.Controls.Add(TextBox1UPIOrCard)
@@ -426,21 +429,41 @@ Partial Class FormOrderPage
         PanelPayment.Size = New Size(389, 204)
         PanelPayment.TabIndex = 68
         ' 
+        ' PictureBoxErrorUPI
+        ' 
+        PictureBoxErrorUPI.BackColor = Color.Transparent
+        PictureBoxErrorUPI.Image = CType(resources.GetObject("PictureBoxErrorUPI.Image"), Image)
+        PictureBoxErrorUPI.Location = New Point(336, 135)
+        PictureBoxErrorUPI.Name = "PictureBoxErrorUPI"
+        PictureBoxErrorUPI.Size = New Size(20, 20)
+        PictureBoxErrorUPI.TabIndex = 91
+        PictureBoxErrorUPI.TabStop = False
+        ' 
+        ' PictureBoxErrorPaymentMode
+        ' 
+        PictureBoxErrorPaymentMode.BackColor = Color.Transparent
+        PictureBoxErrorPaymentMode.Image = CType(resources.GetObject("PictureBoxErrorPaymentMode.Image"), Image)
+        PictureBoxErrorPaymentMode.Location = New Point(17, 80)
+        PictureBoxErrorPaymentMode.Name = "PictureBoxErrorPaymentMode"
+        PictureBoxErrorPaymentMode.Size = New Size(20, 20)
+        PictureBoxErrorPaymentMode.TabIndex = 90
+        PictureBoxErrorPaymentMode.TabStop = False
+        ' 
         ' LabelUPIOrCard
         ' 
         LabelUPIOrCard.AutoSize = True
         LabelUPIOrCard.Font = New Font("Azonix", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelUPIOrCard.Location = New Point(35, 139)
+        LabelUPIOrCard.Location = New Point(8, 139)
         LabelUPIOrCard.Name = "LabelUPIOrCard"
         LabelUPIOrCard.Size = New Size(61, 16)
         LabelUPIOrCard.TabIndex = 55
         LabelUPIOrCard.Text = "UPI Id"' 
         ' TextBox1UPIOrCard
         ' 
-        TextBox1UPIOrCard.Font = New Font("Azonix", 13F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox1UPIOrCard.Location = New Point(139, 136)
+        TextBox1UPIOrCard.Font = New Font("Bahnschrift Condensed", 12.75F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox1UPIOrCard.Location = New Point(102, 132)
         TextBox1UPIOrCard.Name = "TextBox1UPIOrCard"
-        TextBox1UPIOrCard.Size = New Size(228, 25)
+        TextBox1UPIOrCard.Size = New Size(228, 28)
         TextBox1UPIOrCard.TabIndex = 54
         ' 
         ' LabelTransactionMode
@@ -514,16 +537,6 @@ Partial Class FormOrderPage
         LabelOrderDetails.Size = New Size(255, 38)
         LabelOrderDetails.TabIndex = 60
         LabelOrderDetails.Text = "Order Details"' 
-        ' PictureBoxErrorPaymentMode
-        ' 
-        PictureBoxErrorPaymentMode.BackColor = Color.Transparent
-        PictureBoxErrorPaymentMode.Image = CType(resources.GetObject("PictureBoxErrorPaymentMode.Image"), Image)
-        PictureBoxErrorPaymentMode.Location = New Point(17, 80)
-        PictureBoxErrorPaymentMode.Name = "PictureBoxErrorPaymentMode"
-        PictureBoxErrorPaymentMode.Size = New Size(20, 20)
-        PictureBoxErrorPaymentMode.TabIndex = 90
-        PictureBoxErrorPaymentMode.TabStop = False
-        ' 
         ' FormOrderPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -548,6 +561,7 @@ Partial Class FormOrderPage
         PanelPrice.PerformLayout()
         PanelPayment.ResumeLayout(False)
         PanelPayment.PerformLayout()
+        CType(PictureBoxErrorUPI, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxErrorPaymentMode, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -600,4 +614,5 @@ Partial Class FormOrderPage
     Friend WithEvents PictureBoxErrorPhone As PictureBox
     Friend WithEvents PictureBoxErrorName As PictureBox
     Friend WithEvents PictureBoxErrorPaymentMode As PictureBox
+    Friend WithEvents PictureBoxErrorUPI As PictureBox
 End Class

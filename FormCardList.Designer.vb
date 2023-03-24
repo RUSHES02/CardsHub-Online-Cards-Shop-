@@ -121,13 +121,15 @@ Partial Class FormCardList
         ' 
         ' FlowLayoutCardList
         ' 
+        FlowLayoutCardList.AllowDrop = True
+        FlowLayoutCardList.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         FlowLayoutCardList.AutoScroll = True
         FlowLayoutCardList.BackColor = Color.Silver
         FlowLayoutCardList.BorderStyle = BorderStyle.FixedSingle
         FlowLayoutCardList.Location = New Point(340, 223)
         FlowLayoutCardList.Name = "FlowLayoutCardList"
         FlowLayoutCardList.Padding = New Padding(5, 5, 0, 0)
-        FlowLayoutCardList.Size = New Size(1585, 837)
+        FlowLayoutCardList.Size = New Size(1585, 826)
         FlowLayoutCardList.TabIndex = 4
         ' 
         ' PictureBoxBack
@@ -164,7 +166,7 @@ Partial Class FormCardList
         ' PictureBoxBanner
         ' 
         PictureBoxBanner.Image = My.Resources.Resources.banner2
-        PictureBoxBanner.Location = New Point(340, 12)
+        PictureBoxBanner.Location = New Point(340, 3)
         PictureBoxBanner.Name = "PictureBoxBanner"
         PictureBoxBanner.Size = New Size(1585, 192)
         PictureBoxBanner.SizeMode = PictureBoxSizeMode.StretchImage

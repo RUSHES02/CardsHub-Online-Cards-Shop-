@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Data.SqlClient
 Imports System.Net
+Imports System.Text.RegularExpressions
 
 Public Class FormOrderPage
 
@@ -15,6 +16,9 @@ Public Class FormOrderPage
     Dim uid As Integer
 
     Private Sub FormOrderPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormCardList.Close()
+        FormRegister.Close()
+        FormLogin.Hide()
         Dim states() As String = {"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"}
 
         ' Add each state to the ComboBox control
@@ -35,6 +39,7 @@ Public Class FormOrderPage
         PictureBoxErrorLandmark.Visible = False
         PictureBoxErrorPincode.Visible = False
         PictureBoxErrorPaymentMode.Visible = False
+        PictureBoxErrorUPI.Visible = False
 
         'calculating the days of delivery
         deliveryDays = CInt(Int((7 * Rnd()) + 3))
@@ -71,6 +76,7 @@ Public Class FormOrderPage
         PictureBoxErrorLandmark.Visible = False
         PictureBoxErrorPincode.Visible = False
         PictureBoxErrorPaymentMode.Visible = False
+        PictureBoxErrorUPI.Visible = False
 
         'checking if all the fields are entered correctly
         If (checkName() And
@@ -80,7 +86,8 @@ Public Class FormOrderPage
             checkAddress() And
             checkPincode() And
             checkLandmark() And
-            checkPaymentMode()) Then
+            checkPaymentMode() And
+            checkUPIorCard()) Then
 
             'setting sql server and inserting data in the table order
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
@@ -109,7 +116,8 @@ Public Class FormOrderPage
             cmd.ExecuteNonQuery()
             conn.Close()
 
-            MessageBox.Show("Your transaction of " + LabelPayableAmount.Text + " is succesful." + vbCrLf + "Your order will be deliverd on " + deliveryDate + vbCrLf + "Thank You for shopping")
+            'message box gor order confirmation
+            MessageBox.Show("Your transaction of ₹" + LabelPayableAmount.Text + " is succesful." + vbCrLf + "Your order will be deliverd on " + deliveryDate + vbCrLf + "Thank You for shopping")
             Me.Close()
             FormCardList.Show()
         End If
@@ -120,6 +128,7 @@ Public Class FormOrderPage
         LabelUPIOrCard.Visible = True
         LabelUPIOrCard.Text = "Card No."
         TextBox1UPIOrCard.Visible = True
+        TextBox1UPIOrCard.Text = ""
         paymentMode = "Card"
     End Sub
 
@@ -127,6 +136,7 @@ Public Class FormOrderPage
         LabelUPIOrCard.Visible = True
         LabelUPIOrCard.Text = "UPI Id"
         TextBox1UPIOrCard.Visible = True
+        TextBox1UPIOrCard.Text = ""
         paymentMode = "UPI"
     End Sub
 
@@ -155,6 +165,15 @@ Public Class FormOrderPage
         End If
     End Sub
 
+
+    Private Sub TextBox1UPIOrCard_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1UPIOrCard.KeyPress
+        If paymentMode = "Card" Then
+            If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+                e.Handled = True
+            End If
+        End If
+
+    End Sub
     'checking if the name is entered
     Private Function checkName() As Boolean
         If (TextBoxName.Text = "") Then
@@ -230,4 +249,31 @@ Public Class FormOrderPage
         End If
         Return True
     End Function
+
+    'to check upi id or card no is entered correctly
+    Private Function checkUPIorCard() As Boolean
+        If paymentMode = "UPI" Then
+            If (TextBox1UPIOrCard.Text = "") Then
+                PictureBoxErrorUPI.Visible = True
+                Return False
+            End If
+
+            If Not (Regex.IsMatch(TextBox1UPIOrCard.Text, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")) Then
+                PictureBoxErrorUPI.Visible = True
+                Return False
+            End If
+
+        ElseIf paymentMode = "Card" Then
+            If Not TextBox1UPIOrCard.Text.ToString().Length = 12 Then
+                PictureBoxErrorUPI.Visible = True
+                Return False
+            End If
+
+            Return True
+        End If
+    End Function
+
+    Private Sub FormOrderPage_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormCardPage.Show()
+    End Sub
 End Class

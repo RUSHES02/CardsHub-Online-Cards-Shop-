@@ -1,4 +1,5 @@
 Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 
 Public Class FormRegister
 
@@ -109,6 +110,12 @@ Public Class FormRegister
             Return False
         End If
 
+        If Not (Regex.IsMatch(email, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")) Then
+            PictureBoxErrorRegEmail.Visible = True
+            Return False
+        End If
+
+
         'setting and running sql query to fetch email if any
         conn.ConnectionString = ("Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;")
         cmd = New SqlCommand("SELECT Email FROM TableUser WHERE Email = @email", conn)
@@ -153,4 +160,7 @@ Public Class FormRegister
         FormLogin.Show()
     End Sub
 
+    Private Sub FormRegister_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormLogin.Show()
+    End Sub
 End Class

@@ -14,6 +14,8 @@ Public Class FormCardPage
     Dim quantityLeft As Integer     'to store the quantity of the card
 
     Private Sub FormCardPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PictureBoxErrorQuantity.Visible = False
+
         'setting the labels of the discounted invisible
         LabelDiscountedPrice.Visible = False
         LabelRsDiscount.Visible = False
@@ -58,8 +60,10 @@ Public Class FormCardPage
 
     'buy now button to go to order page
     Private Sub ButtonBuyNow_Click(sender As Object, e As EventArgs) Handles ButtonBuyNow.Click
+        FormRegister.Close()
+        FormLogin.Hide()
         'checking if the inventory has cards as specified
-        If Not LabelQuantityError.Visible Then
+        If Not LabelQuantityError.Visible Or PictureBoxErrorQuantity.Visible Then
             quantitySelected = TextBoxQuantity.Text
             costprice = quantitySelected * mrp
             Me.Close()
@@ -69,8 +73,10 @@ Public Class FormCardPage
 
     'to check any change in the text box quantity and diplay price and discounted price accordingly
     Private Sub TextBoxQuantity_TextChanged(sender As Object, e As EventArgs) Handles TextBoxQuantity.TextChanged
+        PictureBoxErrorQuantity.Visible = False
+
         'to check if the quantity is not set 
-        If Not (TextBoxQuantity.Text = "" Or TextBoxQuantity.Text = "0") Then
+        If (TextBoxQuantity.Text <> "" And TextBoxQuantity.Text <> "0") Then
             'checking if the inventory has cards as specified
             If TextBoxQuantity.Text > quantityLeft Then
                 LabelQuantityError.Visible = True
@@ -110,8 +116,8 @@ Public Class FormCardPage
             LabelQuantityError.Visible = False
             LabelDiscountedPrice.Visible = False
             LabelRsDiscount.Visible = False
-            TextBoxQuantity.Text = 1
-            LabelMRP.Text = TextBoxQuantity.Text * mrp
+            PictureBoxErrorQuantity.Visible = True
+            LabelMRP.Text = mrp
             totalAmount = LabelMRP.Text
             LabelMRP.Font = New Font(LabelMRP.Font, LabelMRP.Font.Style And Not FontStyle.Strikeout)
             LabelMRP.ForeColor = Color.FromArgb(41, 191, 18)
@@ -163,5 +169,9 @@ Public Class FormCardPage
         ElseIf type = "New Year" Then
             RichTextBoxContent.Text = "Here's to another year full of joy, laughter, and unforgettable memories with an unforgettable friend! Knowing you have been a master class in true friendship. During the New Year, I hope to emulate your love and warmth. I wish you a very Happy New Year."
         End If
+    End Sub
+
+    Private Sub FormCardPage_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormCardList.Show()
     End Sub
 End Class

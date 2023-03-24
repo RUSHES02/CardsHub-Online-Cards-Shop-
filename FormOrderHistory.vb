@@ -14,6 +14,10 @@ Public Class FormOrderHistory
     Dim today As String                                         'to store todays date
 
     Private Sub FormOrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormAdminCards.Hide()
+        FormCardList.Close()
+        FormRegister.Close()
+        FormLogin.Hide()
         'to set label and sech text box false initially
         LabelSearch.Visible = False
         TextBoxSearch.Visible = False
@@ -88,7 +92,7 @@ Public Class FormOrderHistory
     End Sub
 
     'checking if anu item is selected in the combo box and setting the search box accordingly
-    Private Sub ComboBoxSearchCategory_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub ComboBoxSearchCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxSearchCategory.SelectedIndexChanged
         If ComboBoxSearchCategory.SelectedItem = "Name" Then
             TextBoxSearch.Visible = True
             LabelSearch.Visible = True
@@ -279,5 +283,13 @@ Public Class FormOrderHistory
                 controlObject.Controls.Add(cardLabelDelivery)
             End If
         Next
+    End Sub
+
+    Private Sub FormOrderHistory_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        If logedInEmail = "admin@gmail.com" Then
+            FormAdminCards.Show()
+        Else
+            FormCardList.Show()
+        End If
     End Sub
 End Class

@@ -25,6 +25,7 @@ Partial Class FormCardPage
         PictureBoxCardTemplate = New PictureBox()
         Panel1 = New Panel()
         PanelDetails = New Panel()
+        PictureBoxErrorQuantity = New PictureBox()
         LabelQuantityError = New Label()
         LabelContent2 = New Label()
         LabelContent = New Label()
@@ -43,6 +44,7 @@ Partial Class FormCardPage
         CType(PictureBoxCardTemplate, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         PanelDetails.SuspendLayout()
+        CType(PictureBoxErrorQuantity, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxBack, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -70,6 +72,7 @@ Partial Class FormCardPage
         ' PanelDetails
         ' 
         PanelDetails.BackColor = Color.White
+        PanelDetails.Controls.Add(PictureBoxErrorQuantity)
         PanelDetails.Controls.Add(LabelQuantityError)
         PanelDetails.Controls.Add(LabelContent2)
         PanelDetails.Controls.Add(LabelContent)
@@ -88,6 +91,16 @@ Partial Class FormCardPage
         PanelDetails.Name = "PanelDetails"
         PanelDetails.Size = New Size(577, 540)
         PanelDetails.TabIndex = 1
+        ' 
+        ' PictureBoxErrorQuantity
+        ' 
+        PictureBoxErrorQuantity.BackColor = Color.Transparent
+        PictureBoxErrorQuantity.Image = My.Resources.Resources.icons8_cancel_20
+        PictureBoxErrorQuantity.Location = New Point(404, 201)
+        PictureBoxErrorQuantity.Name = "PictureBoxErrorQuantity"
+        PictureBoxErrorQuantity.Size = New Size(20, 20)
+        PictureBoxErrorQuantity.TabIndex = 55
+        PictureBoxErrorQuantity.TabStop = False
         ' 
         ' LabelQuantityError
         ' 
@@ -248,6 +261,7 @@ Partial Class FormCardPage
         Panel1.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
         PanelDetails.PerformLayout()
+        CType(PictureBoxErrorQuantity, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxBack, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -270,4 +284,5 @@ Partial Class FormCardPage
     Friend WithEvents LabelContent As Label
     Friend WithEvents LabelContent2 As Label
     Friend WithEvents LabelQuantityError As Label
+    Friend WithEvents PictureBoxErrorQuantity As PictureBox
 End Class

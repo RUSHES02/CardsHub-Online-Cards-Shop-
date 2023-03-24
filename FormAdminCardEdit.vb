@@ -8,6 +8,7 @@ Public Class FormAdminCardEdit
     Dim cmd As New SqlCommand
 
     Private Sub FormAdminCardEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormLogin.Hide()
         'adding types to type combo box
         ComboBoxType.Items.Add("Birthday Invitation")
         ComboBoxType.Items.Add("Wedding Invitation")
@@ -25,8 +26,8 @@ Public Class FormAdminCardEdit
         'if the admin wants to edit card details
         If Not alterUid = 0 Then
             'disabling change card type and card image
-            ButtonBrowseImage.Enabled = False
             ComboBoxType.Enabled = False
+            ButtonBrowseImage.Visible = False
 
             'setting sql connection and fetching the details of that card
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
@@ -47,7 +48,6 @@ Public Class FormAdminCardEdit
             TextBoxName.Text = reader.Item("Name")
             conn.Close()
         End If
-        alterUid = 0
     End Sub
 
     'button to browse images for cards
@@ -58,6 +58,21 @@ Public Class FormAdminCardEdit
             PictureBoxImageTemplate.Image = Image.FromFile(OpenFileDialogSelectCardTemplate.FileName)
         End If
     End Sub
+
+    'to check only numbers are being enterd in the quantity text box
+    Private Sub TextBoxPrice_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxPrice.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar = "." Then
+            e.Handled = True
+        End If
+    End Sub
+
+    'to check only numbers are being enterd in the quantity text box
+    Private Sub TextBoxQuantity_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxQuantity.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
 
     'button to save the details of the card
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
@@ -81,13 +96,14 @@ Public Class FormAdminCardEdit
             cmd.Parameters.AddWithValue("@quantity", TextBoxQuantity.Text)
             cmd.ExecuteNonQuery()
             conn.Close()
+            alterUid = 0
 
             'updating card details to be ordered
         Else
             'updating the cards table
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
             conn.Open()
-            cmd = New SqlCommand("UPDATE TableCards SET Price = @price SET Name = @name WHERE CardId = @id", conn)
+            cmd = New SqlCommand("UPDATE TableCards SET Price = @price, Name = @name WHERE CardId = @id", conn)
             cmd.Parameters.AddWithValue("@id", alterUid)
             cmd.Parameters.AddWithValue("@price", TextBoxPrice.Text)
             cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
@@ -110,7 +126,12 @@ Public Class FormAdminCardEdit
 
     'button back to admin cards page
     Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs) Handles PictureBoxBack.Click
+        alterUid = 0
         Me.Close()
+        FormAdminCards.Show()
+    End Sub
+
+    Private Sub FormAdminCardEdit_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         FormAdminCards.Show()
     End Sub
 End Class

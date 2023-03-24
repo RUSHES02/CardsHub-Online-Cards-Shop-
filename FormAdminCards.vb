@@ -23,7 +23,7 @@ Public Class FormAdminCards
     Private Sub FormAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'setting all the dimention of flow layout and indivisual panels
         flowLayoutWidth = (totalwidth * (6 / 7)) - 30
-        FlowLayoutAdmin.Size = New Size(flowLayoutWidth, totalheight - 250)
+        FlowLayoutAdmin.Size = New Size(flowLayoutWidth, 750)
         FlowLayoutAdmin.Location = New Point((totalwidth / 7) + 30, 250)
         PanelSidePane.Size = New Size((totalwidth / 7), totalheight)
         PanelSidePane.Location = New Point(0, 250)
@@ -131,6 +131,12 @@ Public Class FormAdminCards
             Catch ex As Exception
                 LabelNotFound.Visible = True
             End Try
+        End If
+    End Sub
+
+    Private Sub TextBoxSearchId_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxSearchId.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
         End If
     End Sub
 
@@ -310,5 +316,9 @@ Public Class FormAdminCards
         alterUid = CInt(cardId)
         Me.Close()
         FormAdminCardEdit.Show()
+    End Sub
+
+    Private Sub FormAdminCards_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FormLogin.Show()
     End Sub
 End Class
