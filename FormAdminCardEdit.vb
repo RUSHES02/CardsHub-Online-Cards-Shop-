@@ -8,6 +8,7 @@ Public Class FormAdminCardEdit
     Dim cmd As New SqlCommand
 
     Private Sub FormAdminCardEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormCardPage.Close()
         FormLogin.Hide()
         'adding types to type combo box
         ComboBoxType.Items.Add("Birthday Invitation")

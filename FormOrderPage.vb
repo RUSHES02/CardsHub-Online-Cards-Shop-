@@ -268,9 +268,9 @@ Public Class FormOrderPage
                 PictureBoxErrorUPI.Visible = True
                 Return False
             End If
-
-            Return True
         End If
+        Return True
+
     End Function
 
     Private Sub FormOrderPage_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
