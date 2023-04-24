@@ -34,14 +34,14 @@ Public Class FormOrderHistory
             ComboBoxSearchCategory.Items.Add("Phone")
 
             'getting all  order history
-            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId", conn)
+            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId ORDER BY TableOrder.OrderId ASC", conn)
 
             'for customer site
         Else
             ComboBoxSearchCategory.Visible = False
             LabelSelectType.Visible = False
             'getting only the order history of a specific customer
-            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId WHERE TableOrder.Email = @email", conn)
+            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId WHERE TableOrder.Email = @email ORDER BY tableOrder.OrderId ASC", conn)
             cmd.Parameters.AddWithValue("@email", logedInEmail)
         End If
         cmd.ExecuteNonQuery()

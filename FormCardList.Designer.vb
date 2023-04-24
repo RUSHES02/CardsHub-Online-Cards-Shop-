@@ -113,7 +113,7 @@ Partial Class FormCardList
         CheckedListBoxFilter.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
         CheckedListBoxFilter.FormattingEnabled = True
         CheckedListBoxFilter.Items.AddRange(New Object() {"Birthday Invitation", "Wedding Invitation", "Anniversary Invitation", "Baby Shower Invitation", "Business Party", "Inaugration", "Valentine", "Retirement Wishing", "Anniversary Wishing", "Birthday Wishing", "Christmas", "New Year"})
-        CheckedListBoxFilter.Location = New Point(3, 109)
+        CheckedListBoxFilter.Location = New Point(3, 119)
         CheckedListBoxFilter.Margin = New Padding(3, 3, 3, 5)
         CheckedListBoxFilter.Name = "CheckedListBoxFilter"
         CheckedListBoxFilter.Size = New Size(329, 340)

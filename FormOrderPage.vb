@@ -258,7 +258,7 @@ Public Class FormOrderPage
                 Return False
             End If
 
-            If Not (Regex.IsMatch(TextBox1UPIOrCard.Text, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")) Then
+            If Not (Regex.IsMatch(TextBox1UPIOrCard.Text, "[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}")) Then
                 PictureBoxErrorUPI.Visible = True
                 Return False
             End If
@@ -270,7 +270,6 @@ Public Class FormOrderPage
             End If
         End If
         Return True
-
     End Function
 
     Private Sub FormOrderPage_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

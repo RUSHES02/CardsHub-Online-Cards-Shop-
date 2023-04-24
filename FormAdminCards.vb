@@ -18,7 +18,7 @@ Public Class FormAdminCards
     Dim totalheight = My.Computer.Screen.Bounds.Size.Height         'variable to store the height of the screen
     Dim flowLayoutWidth As Double                                   'variable to store the width of the flow layout
     Dim panelWidth As Double                                        'variable to store the width of a indivisual panel
-    Dim panelHeight As Double                                        'variable to store the width of a indivisual panel
+    Dim panelHeight As Double                                       'variable to store the width of a indivisual panel
 
     Private Sub FormAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'setting all the dimention of flow layout and indivisual panels

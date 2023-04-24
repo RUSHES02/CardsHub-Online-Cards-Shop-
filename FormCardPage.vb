@@ -44,6 +44,7 @@ Public Class FormCardPage
         PictureBoxCardTemplate.Image = Image.FromStream(ms)
         LabelMRP.Text = reader.Item("Price")
         mrp = reader.Item("Price")
+        totalAmount = reader.Item("Price")
         LabelName.Text = reader.Item("Name")
         quantityLeft = reader.Item("Quantity")
         setContent(reader.Item("Type"))
@@ -86,6 +87,7 @@ Public Class FormCardPage
             End If
 
             'if the quantity is set set the mrp accordingly
+
             LabelMRP.Text = TextBoxQuantity.Text * mrp
             LabelMRP.ForeColor = Color.FromArgb(41, 191, 18)
             LabelRsMRP.ForeColor = Color.FromArgb(41, 191, 18)
