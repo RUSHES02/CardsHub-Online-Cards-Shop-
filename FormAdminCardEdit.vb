@@ -11,37 +11,31 @@ Public Class FormAdminCardEdit
         FormCardPage.Close()
         FormLogin.Hide()
         'adding types to type combo box
-        ComboBoxType.Items.Add("Birthday Invitation")
-        ComboBoxType.Items.Add("Wedding Invitation")
-        ComboBoxType.Items.Add("Anniversary Invitation")
-        ComboBoxType.Items.Add("Baby Shower Invitation")
-        ComboBoxType.Items.Add("Business Party")
-        ComboBoxType.Items.Add("Inaugration")
+        ComboBoxType.Items.Add("Birthday")
+        ComboBoxType.Items.Add("Wedding")
+        ComboBoxType.Items.Add("Anniversary")
         ComboBoxType.Items.Add("Valentine")
-        ComboBoxType.Items.Add("Retirement Wishing")
-        ComboBoxType.Items.Add("Anniversary Wishing")
-        ComboBoxType.Items.Add("Birthday Wishing")
-        ComboBoxType.Items.Add("Christmas")
-        ComboBoxType.Items.Add("New Year")
+        ComboBoxType.Items.Add("Festival")
+        ComboBoxType.Items.Add("Others")
 
         'if the admin wants to edit card details
         If Not alterUid = 0 Then
-            'disabling change card type and card image
+            'disabling change Gift type and Gift image
             ComboBoxType.Enabled = False
             ButtonBrowseImage.Visible = False
 
-            'setting sql connection and fetching the details of that card
+            'setting sql connection and fetching the details of that Gift
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
             conn.Open()
-            cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name, TableInventory.Quantity FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId JOIN TableInventory ON TableCards.CardId = TableInventory.CardId WHERE TableCards.CardId = @id", conn)
+            cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name, TableInventory.Quantity FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId JOIN TableInventory ON TableGifts.GiftId = TableInventory.GiftId WHERE TableGifts.GiftId = @id", conn)
             cmd.Parameters.AddWithValue("@id", alterUid)
             Dim reader As SqlDataReader = cmd.ExecuteReader
             reader.Read()
 
             'setting al the controls with the fetched data
-            Dim cardImage() As Byte
-            cardImage = reader.Item("CardTemplate")
-            Dim ms As New MemoryStream(cardImage)
+            Dim GiftImage() As Byte
+            GiftImage = reader.Item("GiftTemplate")
+            Dim ms As New MemoryStream(GiftImage)
             PictureBoxImageTemplate.Image = Image.FromStream(ms)
             TextBoxPrice.Text = reader.Item("Price")
             TextBoxQuantity.Text = reader.Item("Quantity")
@@ -51,7 +45,7 @@ Public Class FormAdminCardEdit
         End If
     End Sub
 
-    'button to browse images for cards
+    'button to browse images for Gifts
     Private Sub ButtonBrowseImage_Click(sender As Object, e As EventArgs) Handles ButtonBrowseImage.Click
         OpenFileDialogSelectCardTemplate.FileName = ""
         OpenFileDialogSelectCardTemplate.Filter = "(Images)|*.jpg;*.png"
@@ -75,43 +69,43 @@ Public Class FormAdminCardEdit
     End Sub
 
 
-    'button to save the details of the card
+    'button to save the details of the Gift
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
-        'if a new card is being added
+        'if a new Gift is being added
         If alterUid = 0 Then
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
 
-            Dim sqlStatement = "INSERT INTO TableCards(CardId, CardTemplate, TypeId, Price, Name) VALUES ((SELECT ISNULL(MAX(CardId) + 1, 1) FROM TableCards), @cardTemplate, @typeId, @price, @name)"
+            Dim sqlStatement = "INSERT INTO TableGifts(GiftId, GiftTemplate, TypeId, Price, Name) VALUES ((SELECT ISNULL(MAX(GiftId) + 1, 1) FROM TableGifts), @GiftTemplate, @typeId, @price, @name)"
             Dim imageTemp As New MemoryStream
             PictureBoxImageTemplate.Image.Save(imageTemp, PictureBoxImageTemplate.Image.RawFormat)
 
             conn.Open()
             cmd = New SqlCommand(sqlStatement, conn)
-            cmd.Parameters.AddWithValue("@cardTemplate", imageTemp.ToArray)
+            cmd.Parameters.AddWithValue("@GiftTemplate", imageTemp.ToArray)
             cmd.Parameters.AddWithValue("@typeId", ComboBoxType.SelectedIndex + 1)
             cmd.Parameters.AddWithValue("@price", TextBoxPrice.Text)
             cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
             cmd.ExecuteNonQuery()
 
-            cmd = New SqlCommand("INSERT INTO TableInventory(CardId, Quantity) VALUES ((SELECT ISNULL(MAX(CardId), 1) FROM TableCards), @quantity)", conn)
+            cmd = New SqlCommand("INSERT INTO TableInventory(GiftId, Quantity) VALUES ((SELECT ISNULL(MAX(GiftId), 1) FROM TableGifts), @quantity)", conn)
             cmd.Parameters.AddWithValue("@quantity", TextBoxQuantity.Text)
             cmd.ExecuteNonQuery()
             conn.Close()
             alterUid = 0
 
-            'updating card details to be ordered
+            'updating Gift details to be ordered
         Else
-            'updating the cards table
+            'updating the Gifts table
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
             conn.Open()
-            cmd = New SqlCommand("UPDATE TableCards SET Price = @price, Name = @name WHERE CardId = @id", conn)
+            cmd = New SqlCommand("UPDATE TableGifts SET Price = @price, Name = @name WHERE GiftId = @id", conn)
             cmd.Parameters.AddWithValue("@id", alterUid)
             cmd.Parameters.AddWithValue("@price", TextBoxPrice.Text)
             cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
             cmd.ExecuteNonQuery()
 
             'updating the inventory
-            cmd = New SqlCommand("UPDATE TableInventory SET Quantity = @quantity WHERE CardId = @id", conn)
+            cmd = New SqlCommand("UPDATE TableInventory SET Quantity = @quantity WHERE GiftId = @id", conn)
             cmd.Parameters.AddWithValue("@id", alterUid)
             cmd.Parameters.AddWithValue("@quantity", TextBoxQuantity.Text)
             cmd.ExecuteNonQuery()
@@ -125,7 +119,7 @@ Public Class FormAdminCardEdit
 
     End Sub
 
-    'button back to admin cards page
+    'button back to admin Gifts page
     Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs) Handles PictureBoxBack.Click
         alterUid = 0
         Me.Close()

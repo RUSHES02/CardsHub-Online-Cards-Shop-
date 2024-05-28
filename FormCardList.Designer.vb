@@ -29,7 +29,7 @@ Partial Class FormCardList
         PanelFilter = New Panel()
         LabelFilter = New Label()
         CheckedListBoxFilter = New CheckedListBox()
-        FlowLayoutCardList = New FlowLayoutPanel()
+        FlowLayoutGiftList = New FlowLayoutPanel()
         PictureBoxBack = New PictureBox()
         PictureBoxOrderHistory = New PictureBox()
         LabelOrderHistory = New Label()
@@ -75,7 +75,8 @@ Partial Class FormCardList
         LabelCategories.Name = "LabelCategories"
         LabelCategories.Size = New Size(172, 25)
         LabelCategories.TabIndex = 0
-        LabelCategories.Text = "CATEGORIES"' 
+        LabelCategories.Text = "CATEGORIES"
+        ' 
         ' LabelPrice
         ' 
         LabelPrice.AutoSize = True
@@ -84,7 +85,8 @@ Partial Class FormCardList
         LabelPrice.Name = "LabelPrice"
         LabelPrice.Size = New Size(90, 25)
         LabelPrice.TabIndex = 52
-        LabelPrice.Text = "PRICE"' 
+        LabelPrice.Text = "PRICE"
+        ' 
         ' PanelFilter
         ' 
         PanelFilter.BackColor = Color.Black
@@ -105,32 +107,33 @@ Partial Class FormCardList
         LabelFilter.Name = "LabelFilter"
         LabelFilter.Size = New Size(121, 39)
         LabelFilter.TabIndex = 0
-        LabelFilter.Text = "Filters"' 
+        LabelFilter.Text = "Filters"
+        ' 
         ' CheckedListBoxFilter
         ' 
         CheckedListBoxFilter.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
         CheckedListBoxFilter.CheckOnClick = True
         CheckedListBoxFilter.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
         CheckedListBoxFilter.FormattingEnabled = True
-        CheckedListBoxFilter.Items.AddRange(New Object() {"Birthday Invitation", "Wedding Invitation", "Anniversary Invitation", "Baby Shower Invitation", "Business Party", "Inaugration", "Valentine", "Retirement Wishing", "Anniversary Wishing", "Birthday Wishing", "Christmas", "New Year"})
+        CheckedListBoxFilter.Items.AddRange(New Object() {"Birthday", "Wedding", "Anniversary", "Valentine", "Festival", "Others"})
         CheckedListBoxFilter.Location = New Point(3, 119)
         CheckedListBoxFilter.Margin = New Padding(3, 3, 3, 5)
         CheckedListBoxFilter.Name = "CheckedListBoxFilter"
         CheckedListBoxFilter.Size = New Size(329, 340)
         CheckedListBoxFilter.TabIndex = 50
         ' 
-        ' FlowLayoutCardList
+        ' FlowLayoutGiftList
         ' 
-        FlowLayoutCardList.AllowDrop = True
-        FlowLayoutCardList.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        FlowLayoutCardList.AutoScroll = True
-        FlowLayoutCardList.BackColor = Color.Silver
-        FlowLayoutCardList.BorderStyle = BorderStyle.FixedSingle
-        FlowLayoutCardList.Location = New Point(340, 223)
-        FlowLayoutCardList.Name = "FlowLayoutCardList"
-        FlowLayoutCardList.Padding = New Padding(5, 5, 0, 0)
-        FlowLayoutCardList.Size = New Size(1585, 826)
-        FlowLayoutCardList.TabIndex = 4
+        FlowLayoutGiftList.AllowDrop = True
+        FlowLayoutGiftList.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        FlowLayoutGiftList.AutoScroll = True
+        FlowLayoutGiftList.BackColor = Color.Silver
+        FlowLayoutGiftList.BorderStyle = BorderStyle.FixedSingle
+        FlowLayoutGiftList.Location = New Point(340, 223)
+        FlowLayoutGiftList.Name = "FlowLayoutGiftList"
+        FlowLayoutGiftList.Padding = New Padding(5, 5, 0, 0)
+        FlowLayoutGiftList.Size = New Size(1585, 826)
+        FlowLayoutGiftList.TabIndex = 4
         ' 
         ' PictureBoxBack
         ' 
@@ -162,7 +165,8 @@ Partial Class FormCardList
         LabelOrderHistory.Name = "LabelOrderHistory"
         LabelOrderHistory.Size = New Size(126, 23)
         LabelOrderHistory.TabIndex = 64
-        LabelOrderHistory.Text = "Order History"' 
+        LabelOrderHistory.Text = "Order History"
+        ' 
         ' PictureBoxBanner
         ' 
         PictureBoxBanner.Image = My.Resources.Resources.banner2
@@ -183,7 +187,7 @@ Partial Class FormCardList
         Controls.Add(LabelOrderHistory)
         Controls.Add(PictureBoxOrderHistory)
         Controls.Add(PictureBoxBack)
-        Controls.Add(FlowLayoutCardList)
+        Controls.Add(FlowLayoutGiftList)
         Controls.Add(PanelSidePane)
         Name = "FormCardList"
         Text = "FormCardList"
@@ -213,7 +217,7 @@ Partial Class FormCardList
     Friend WithEvents CheckBoxNewYear As CheckBox
     Friend WithEvents CheckBoxChristmas As CheckBox
     Friend WithEvents CheckedListBoxFilter As CheckedListBox
-    Friend WithEvents FlowLayoutCardList As FlowLayoutPanel
+    Friend WithEvents FlowLayoutGiftList As FlowLayoutPanel
     Friend WithEvents PanelFilter As Panel
     Friend WithEvents LabelFilter As Label
     Friend WithEvents LabelCategories As Label

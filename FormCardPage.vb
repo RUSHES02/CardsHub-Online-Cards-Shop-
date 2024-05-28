@@ -10,8 +10,8 @@ Public Class FormCardPage
     Dim conn As New SqlConnection
     Dim cmd As New SqlCommand
 
-    Dim mrp As Integer              'to store the mrp of a single card
-    Dim quantityLeft As Integer     'to store the quantity of the card
+    Dim mrp As Integer              'to store the mrp of a single Gift
+    Dim quantityLeft As Integer     'to store the quantity of the Gift
 
     Private Sub FormCardPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBoxErrorQuantity.Visible = False
@@ -29,19 +29,19 @@ Public Class FormCardPage
         'setting sql connection and running query to all card details
         conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
         conn.Open()
-        cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name, TableInventory.Quantity FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId JOIN TableInventory ON TableCards.CardId = TableInventory.CardId WHERE TableCards.CardId = @id", conn)
+        cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name, TableInventory.Quantity FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId JOIN TableInventory ON TableGifts.GiftId = TableInventory.GiftId WHERE TableGifts.GiftId = @id", conn)
         cmd.Parameters.AddWithValue("@id", selectCardUid)
         'sql reader
         Dim reader As SqlDataReader = cmd.ExecuteReader
         reader.Read()
         'variable to store image
-        Dim cardImage() As Byte
-        cardImage = reader.Item("CardTemplate")
+        Dim GiftImage() As Byte
+        GiftImage = reader.Item("GiftTemplate")
         'converting the  image to memory stream
-        Dim ms As New MemoryStream(cardImage)
+        Dim ms As New MemoryStream(GiftImage)
 
         'setting all the data from sql to the components
-        PictureBoxCardTemplate.Image = Image.FromStream(ms)
+        PictureBoxGiftTemplate.Image = Image.FromStream(ms)
         LabelMRP.Text = reader.Item("Price")
         mrp = reader.Item("Price")
         totalAmount = reader.Item("Price")
@@ -63,7 +63,7 @@ Public Class FormCardPage
     Private Sub ButtonBuyNow_Click(sender As Object, e As EventArgs) Handles ButtonBuyNow.Click
         FormRegister.Close()
         FormLogin.Hide()
-        'checking if the inventory has cards as specified
+        'checking if the inventory has Gifts as specified
         If Not LabelQuantityError.Visible Or PictureBoxErrorQuantity.Visible Then
             quantitySelected = TextBoxQuantity.Text
             costprice = quantitySelected * mrp
@@ -78,7 +78,7 @@ Public Class FormCardPage
 
         'to check if the quantity is not set 
         If (TextBoxQuantity.Text <> "" And TextBoxQuantity.Text <> "0") Then
-            'checking if the inventory has cards as specified
+            'checking if the inventory has Gifts as specified
             If TextBoxQuantity.Text > quantityLeft Then
                 LabelQuantityError.Visible = True
                 LabelQuantityError.Text = "SORRY! Only " + CStr(quantityLeft) + " units left"
@@ -173,7 +173,7 @@ Public Class FormCardPage
         End If
     End Sub
 
-    Private Sub FormCardPage_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+    Private Sub FormGiftPage_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         FormCardList.Show()
     End Sub
 End Class

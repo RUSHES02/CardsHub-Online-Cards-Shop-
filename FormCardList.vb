@@ -25,8 +25,8 @@ Public Class FormCardList
 
         'setting all the dimention of flow layout and indivisual panels
         flowLayoutWidth = (totalwidth * (6 / 7)) - 30
-        FlowLayoutCardList.Size = New Size(flowLayoutWidth, 750)
-        FlowLayoutCardList.Location = New Point((totalwidth / 7) + 30, 250)
+        FlowLayoutGiftList.Size = New Size(flowLayoutWidth, 750)
+        FlowLayoutGiftList.Location = New Point((totalwidth / 7) + 30, 250)
         PanelSidePane.Size = New Size((totalwidth / 7), totalheight)
         PanelSidePane.Location = New Point(0, 250)
         panelWidth = flowLayoutWidth / 6 - 10
@@ -52,9 +52,9 @@ Public Class FormCardList
         FormOrderHistory.Show()
     End Sub
 
-    'applying type filter to the card list
+    'applying type filter to the Gift list
     Private Sub CheckedListBoxFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CheckedListBoxFilter.SelectedIndexChanged
-        FlowLayoutCardList.Controls.Clear()
+        FlowLayoutGiftList.Controls.Clear()
         Dim l = CheckedListBoxFilter.CheckedItems.Count
         'if nothing is selected in the checked list
         If l = 0 Then
@@ -70,13 +70,13 @@ Public Class FormCardList
     End Sub
 
     Private Sub CheckedListBoxPrice_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CheckedListBoxPrice.SelectedIndexChanged
-        FlowLayoutCardList.Controls.Clear()
+        FlowLayoutGiftList.Controls.Clear()
         enterAccordingToFilter()
     End Sub
 
     Public Sub enterAccordingToFilter()
         LabelCategories.Visible = False
-        FlowLayoutCardList.Controls.Clear()
+        FlowLayoutGiftList.Controls.Clear()
 
         If CheckedListBoxPrice.CheckedItems.Count = 0 Then
             enterAllCardsOfType()
@@ -98,38 +98,38 @@ Public Class FormCardList
                 conn.Open()
 
                 If itemPrice = "Below ₹50" Then
-                    cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId WHERE TableCards.TypeId = (SELECT TypeId FROM TableCardType WHERE Type = @type) AND (TableCards.Price < 50)", conn)
+                    cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId WHERE TableGifts.TypeId = (SELECT TypeId FROM TableGiftType WHERE Type = @type) AND (TableGifts.Price < 50)", conn)
                     cmd.Parameters.AddWithValue("@type", item)
                     cmd.ExecuteNonQuery()
                 End If
 
                 If itemPrice = "₹50 - ₹100" Then
-                    cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId WHERE TableCards.TypeId = (SELECT TypeId FROM TableCardType WHERE Type = @type) AND (TableCards.Price BETWEEN 50 AND 99)", conn)
+                    cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId WHERE TableGifts.TypeId = (SELECT TypeId FROM TableGiftType WHERE Type = @type) AND (TableGifts.Price BETWEEN 50 AND 99)", conn)
                     cmd.Parameters.AddWithValue("@type", item)
                     cmd.ExecuteNonQuery()
                 End If
 
                 If itemPrice = "₹100 - ₹150" Then
-                    cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId WHERE TableCards.TypeId = (SELECT TypeId FROM TableCardType WHERE Type = @type) AND (TableCards.Price BETWEEN 100 AND 150)", conn)
+                    cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId WHERE TableGifts.TypeId = (SELECT TypeId FROM TableGiftType WHERE Type = @type) AND (TableGifts.Price BETWEEN 100 AND 150)", conn)
                     cmd.Parameters.AddWithValue("@type", item)
                     cmd.ExecuteNonQuery()
                 End If
 
                 If itemPrice = "Above ₹150" Then
-                    cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId WHERE TableCards.TypeId = (SELECT TypeId FROM TableCardType WHERE Type = @type) AND (TableCards.Price > 150)", conn)
+                    cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId WHERE TableGifts.TypeId = (SELECT TypeId FROM TableGiftType WHERE Type = @type) AND (TableGifts.Price > 150)", conn)
                     cmd.Parameters.AddWithValue("@type", item)
                     cmd.ExecuteNonQuery()
                 End If
                 reader = cmd.ExecuteReader
                 If reader.HasRows() Then
                     While reader.Read()
-                        'variable to store card image
-                        Dim cardImage() As Byte
-                        cardImage = reader.Item("CardTemplate")
-                        'converting card image to memory stream
-                        Dim ms As New MemoryStream(cardImage)
+                        'variable to store Gift image
+                        Dim GiftImage() As Byte
+                        GiftImage = reader.Item("GiftTemplate")
+                        'converting Gift image to memory stream
+                        Dim ms As New MemoryStream(GiftImage)
                         'setting the panel
-                        createPanel(reader.Item("CardId"))
+                        createPanel(reader.Item("GiftId"))
                         createCardPictureBox(currentPanel, ms)
                         createCardLabelPrice(currentPanel, reader.Item("Price"))
                         createCardLabelName(currentPanel, reader.Item("Name"))
@@ -144,23 +144,23 @@ Public Class FormCardList
 
     'to all the cards in the database which are of the selected type
     Public Sub enterAllCardsOfType()
-        FlowLayoutCardList.Controls.Clear()
+        FlowLayoutGiftList.Controls.Clear()
         For Each item In CheckedListBoxFilter.CheckedItems
             conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
             conn.Open()
-            cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId WHERE TableCards.TypeId = (SELECT TypeId FROM TableCardType WHERE Type = @type)", conn)
+            cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId WHERE TableGifts.TypeId = (SELECT TypeId FROM TableGiftType WHERE Type = @type)", conn)
             cmd.Parameters.AddWithValue("@type", item)
             cmd.ExecuteNonQuery()
             reader = cmd.ExecuteReader
             If reader.HasRows() Then
                 While reader.Read()
-                    'variable to store card image
-                    Dim cardImage() As Byte
-                    cardImage = reader.Item("CardTemplate")
-                    'converting card image to memory stream
-                    Dim ms As New MemoryStream(cardImage)
+                    'variable to store Gift image
+                    Dim GiftImage() As Byte
+                    GiftImage = reader.Item("GiftTemplate")
+                    'converting Gift image to memory stream
+                    Dim ms As New MemoryStream(GiftImage)
                     'setting the panel
-                    createPanel(reader.Item("CardId"))
+                    createPanel(reader.Item("GiftId"))
                     createCardPictureBox(currentPanel, ms)
                     createCardLabelPrice(currentPanel, reader.Item("Price"))
                     createCardLabelName(currentPanel, reader.Item("Name"))
@@ -175,14 +175,14 @@ Public Class FormCardList
     Public Sub enterAllCards()
         conn.ConnectionString = "Data Source=LAPTOP-G773S8H7;Initial Catalog=SE-PROJECT;Integrated Security=True;"
         conn.Open()
-        cmd = New SqlCommand("SELECT TableCards.Cardid, TableCards.CardTemplate, TableCards.Price, TableCardType.Type, TableCards.Name FROM TableCards JOIN TableCardType ON TableCards.TypeId = TableCardType.TypeId", conn)
+        cmd = New SqlCommand("SELECT TableGifts.Giftid, TableGifts.GiftTemplate, TableGifts.Price, TableGiftType.Type, TableGifts.Name FROM TableGifts JOIN TableGiftType ON TableGifts.TypeId = TableGiftType.TypeId", conn)
         reader = cmd.ExecuteReader
 
         While reader.Read()
-            Dim cardImage() As Byte
-            cardImage = reader.Item("CardTemplate")
-            Dim ms As New MemoryStream(cardImage)
-            createPanel(reader.Item("CardId"))
+            Dim GiftImage() As Byte
+            GiftImage = reader.Item("GiftTemplate")
+            Dim ms As New MemoryStream(GiftImage)
+            createPanel(reader.Item("GiftId"))
             createCardPictureBox(currentPanel, ms)
             createCardLabelPrice(currentPanel, reader.Item("Price"))
             createCardLabelName(currentPanel, reader.Item("Name"))
@@ -204,43 +204,43 @@ Public Class FormCardList
         End With
 
         'Add panel to layout panel
-        FlowLayoutCardList.Controls.Add(cardPanel)
+        FlowLayoutGiftList.Controls.Add(cardPanel)
 
         currentPanel = cardPanel.Name
     End Sub
 
     'adding picture box to the panel and card image
     Public Sub createCardPictureBox(ByVal panelName As String, ByVal ms As MemoryStream)
-        Dim cardTemplate As PictureBox
-        cardTemplate = New PictureBox
+        Dim GiftTemplate As PictureBox
+        GiftTemplate = New PictureBox
 
         'Set picture box properties
-        With cardTemplate
+        With GiftTemplate
             .SizeMode = PictureBoxSizeMode.Zoom
             .Size = New Drawing.Size(panelWidth - 10, (panelWidth - 10) * 1.5)
             .Location = New Point(5, 5)
-            .Name = "cardTemplate" + currentPanel
+            .Name = "GiftTemplate" + currentPanel
             .Image = Image.FromStream(ms)
         End With
 
-        'Add card image to the layout
-        For Each controlObject In FlowLayoutCardList.Controls
+        'Add Gift image to the layout
+        For Each controlObject In FlowLayoutGiftList.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardTemplate)
+                controlObject.Controls.Add(GiftTemplate)
             End If
         Next
     End Sub
 
-    'adding label name to the panel and card image
+    'adding label name to the panel and Gift image
     Public Sub createCardLabelName(ByVal panelName As String, ByVal name As String)
-        Dim cardLabelName As Label
-        cardLabelName = New Label
+        Dim GiftLabelName As Label
+        GiftLabelName = New Label
 
         'Set label name properties
-        With cardLabelName
+        With GiftLabelName
             .AutoSize = True
             .Location = New Point(5, (panelWidth - 10) * 1.5 + 10)
-            .Name = "cardLabelName" + currentPanel
+            .Name = "GiftLabelName" + currentPanel
             .Text = name
             .AutoSize = True
             .MaximumSize = New Size(panelWidth, 0)
@@ -248,9 +248,9 @@ Public Class FormCardList
         End With
 
         'Add label name to the panel
-        For Each controlObject In FlowLayoutCardList.Controls
+        For Each controlObject In FlowLayoutGiftList.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardLabelName)
+                controlObject.Controls.Add(GiftLabelName)
             End If
         Next
     End Sub
@@ -264,13 +264,13 @@ Public Class FormCardList
         With cardLabelPrice
             .AutoSize = True
             .Location = New Point(5, panelHeight - 80)
-            .Name = "cardLabelPrice" + currentPanel
+            .Name = "GiftLabelPrice" + currentPanel
             .Text = "₹" + price
             .Font = New Font("Book Antiqua", 14)
         End With
 
         'Add label name to the panel
-        For Each controlObject In FlowLayoutCardList.Controls
+        For Each controlObject In FlowLayoutGiftList.Controls
             If controlObject.Name = panelName Then
                 controlObject.Controls.Add(cardLabelPrice)
             End If
@@ -295,7 +295,7 @@ Public Class FormCardList
         End With
 
         'adding button to the panel
-        For Each controlObject In FlowLayoutCardList.Controls
+        For Each controlObject In FlowLayoutGiftList.Controls
             If controlObject.Name = panelName Then
                 controlObject.Controls.Add(buttonOpen)
             End If

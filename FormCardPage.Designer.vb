@@ -22,7 +22,7 @@ Partial Class FormCardPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        PictureBoxCardTemplate = New PictureBox()
+        PictureBoxGiftTemplate = New PictureBox()
         Panel1 = New Panel()
         PanelDetails = New Panel()
         PictureBoxErrorQuantity = New PictureBox()
@@ -41,29 +41,29 @@ Partial Class FormCardPage
         LabelMRP = New Label()
         LabelDiscountedPrice = New Label()
         PictureBoxBack = New PictureBox()
-        CType(PictureBoxCardTemplate, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxGiftTemplate, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         PanelDetails.SuspendLayout()
         CType(PictureBoxErrorQuantity, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxBack, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' PictureBoxCardTemplate
+        ' PictureBoxGiftTemplate
         ' 
-        PictureBoxCardTemplate.BackColor = Color.White
-        PictureBoxCardTemplate.Image = My.Resources.Resources.icons8_user_male_50
-        PictureBoxCardTemplate.Location = New Point(38, 43)
-        PictureBoxCardTemplate.Name = "PictureBoxCardTemplate"
-        PictureBoxCardTemplate.Size = New Size(360, 530)
-        PictureBoxCardTemplate.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBoxCardTemplate.TabIndex = 0
-        PictureBoxCardTemplate.TabStop = False
+        PictureBoxGiftTemplate.BackColor = Color.White
+        PictureBoxGiftTemplate.Image = My.Resources.Resources.icons8_user_male_50
+        PictureBoxGiftTemplate.Location = New Point(38, 43)
+        PictureBoxGiftTemplate.Name = "PictureBoxGiftTemplate"
+        PictureBoxGiftTemplate.Size = New Size(360, 530)
+        PictureBoxGiftTemplate.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxGiftTemplate.TabIndex = 0
+        PictureBoxGiftTemplate.TabStop = False
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.Gainsboro
         Panel1.Controls.Add(PanelDetails)
-        Panel1.Controls.Add(PictureBoxCardTemplate)
+        Panel1.Controls.Add(PictureBoxGiftTemplate)
         Panel1.Location = New Point(84, 88)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1082, 617)
@@ -111,7 +111,8 @@ Partial Class FormCardPage
         LabelQuantityError.Name = "LabelQuantityError"
         LabelQuantityError.Size = New Size(190, 18)
         LabelQuantityError.TabIndex = 27
-        LabelQuantityError.Text = "SORRY! Only 45 units left"' 
+        LabelQuantityError.Text = "SORRY! Only 45 units left"
+        ' 
         ' LabelContent2
         ' 
         LabelContent2.AutoSize = True
@@ -120,7 +121,8 @@ Partial Class FormCardPage
         LabelContent2.Name = "LabelContent2"
         LabelContent2.Size = New Size(240, 18)
         LabelContent2.TabIndex = 26
-        LabelContent2.Text = "( You can edit the content here )"' 
+        LabelContent2.Text = "( You can edit the content here )"
+        ' 
         ' LabelContent
         ' 
         LabelContent.AutoSize = True
@@ -129,7 +131,8 @@ Partial Class FormCardPage
         LabelContent.Name = "LabelContent"
         LabelContent.Size = New Size(135, 20)
         LabelContent.TabIndex = 25
-        LabelContent.Text = "Content "' 
+        LabelContent.Text = "Content "
+        ' 
         ' LabelRsDiscount
         ' 
         LabelRsDiscount.AutoSize = True
@@ -139,7 +142,8 @@ Partial Class FormCardPage
         LabelRsDiscount.Name = "LabelRsDiscount"
         LabelRsDiscount.Size = New Size(25, 28)
         LabelRsDiscount.TabIndex = 24
-        LabelRsDiscount.Text = "₹"' 
+        LabelRsDiscount.Text = "₹"
+        ' 
         ' LabelRsMRP
         ' 
         LabelRsMRP.AutoSize = True
@@ -149,7 +153,8 @@ Partial Class FormCardPage
         LabelRsMRP.Name = "LabelRsMRP"
         LabelRsMRP.Size = New Size(25, 28)
         LabelRsMRP.TabIndex = 23
-        LabelRsMRP.Text = "₹"' 
+        LabelRsMRP.Text = "₹"
+        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
@@ -166,7 +171,8 @@ Partial Class FormCardPage
         LabelPrice.Name = "LabelPrice"
         LabelPrice.Size = New Size(81, 21)
         LabelPrice.TabIndex = 21
-        LabelPrice.Text = "Price"' 
+        LabelPrice.Text = "Price"
+        ' 
         ' ButtonBuyNow
         ' 
         ButtonBuyNow.BackColor = Color.Black
@@ -188,7 +194,8 @@ Partial Class FormCardPage
         LabelName.Name = "LabelName"
         LabelName.Size = New Size(88, 24)
         LabelName.TabIndex = 18
-        LabelName.Text = "Name"' 
+        LabelName.Text = "Name"
+        ' 
         ' RichTextBoxContent
         ' 
         RichTextBoxContent.Font = New Font("Aparajita", 14F, FontStyle.Bold, GraphicsUnit.Point)
@@ -197,7 +204,8 @@ Partial Class FormCardPage
         RichTextBoxContent.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBoxContent.Size = New Size(458, 114)
         RichTextBoxContent.TabIndex = 19
-        RichTextBoxContent.Text = ""' 
+        RichTextBoxContent.Text = ""
+        ' 
         ' LabelQuantity
         ' 
         LabelQuantity.AutoSize = True
@@ -206,7 +214,8 @@ Partial Class FormCardPage
         LabelQuantity.Name = "LabelQuantity"
         LabelQuantity.Size = New Size(131, 21)
         LabelQuantity.TabIndex = 13
-        LabelQuantity.Text = "Quantity"' 
+        LabelQuantity.Text = "Quantity"
+        ' 
         ' TextBoxQuantity
         ' 
         TextBoxQuantity.Font = New Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
@@ -224,7 +233,8 @@ Partial Class FormCardPage
         LabelMRP.Name = "LabelMRP"
         LabelMRP.Size = New Size(64, 29)
         LabelMRP.TabIndex = 12
-        LabelMRP.Text = "MRP"' 
+        LabelMRP.Text = "MRP"
+        ' 
         ' LabelDiscountedPrice
         ' 
         LabelDiscountedPrice.AutoSize = True
@@ -234,7 +244,8 @@ Partial Class FormCardPage
         LabelDiscountedPrice.Name = "LabelDiscountedPrice"
         LabelDiscountedPrice.Size = New Size(108, 29)
         LabelDiscountedPrice.TabIndex = 16
-        LabelDiscountedPrice.Text = "Discount"' 
+        LabelDiscountedPrice.Text = "Discount"
+        ' 
         ' PictureBoxBack
         ' 
         PictureBoxBack.BackColor = Color.Black
@@ -257,7 +268,7 @@ Partial Class FormCardPage
         Name = "FormCardPage"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormCardPage"
-        CType(PictureBoxCardTemplate, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxGiftTemplate, ComponentModel.ISupportInitialize).EndInit()
         Panel1.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
         PanelDetails.PerformLayout()
@@ -266,7 +277,7 @@ Partial Class FormCardPage
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents PictureBoxCardTemplate As PictureBox
+    Friend WithEvents PictureBoxGiftTemplate As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBoxBack As PictureBox
     Friend WithEvents PanelDetails As Panel

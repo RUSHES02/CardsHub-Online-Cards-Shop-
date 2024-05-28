@@ -29,7 +29,7 @@ Partial Class FormAdminCardEdit
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
-        Label1 = New Label()
+        LabelGiftType = New Label()
         ButtonSave = New Button()
         ComboBoxType = New ComboBox()
         TextBoxQuantity = New TextBox()
@@ -45,7 +45,8 @@ Partial Class FormAdminCardEdit
         ' 
         OpenFileDialogSelectCardTemplate.Filter = "(Images)|*.jpg;*.png"
         OpenFileDialogSelectCardTemplate.InitialDirectory = "C:\Users\Abhijaan Ganguly\OneDrive\Pictures\SE Project pics"
-        OpenFileDialogSelectCardTemplate.Title = "Select Card Template"' 
+        OpenFileDialogSelectCardTemplate.Title = "Select Card Template"
+        ' 
         ' PictureBoxImageTemplate
         ' 
         PictureBoxImageTemplate.BackColor = Color.White
@@ -75,7 +76,7 @@ Partial Class FormAdminCardEdit
         Panel1.Controls.Add(Label4)
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(LabelGiftType)
         Panel1.Controls.Add(ButtonSave)
         Panel1.Controls.Add(ComboBoxType)
         Panel1.Controls.Add(TextBoxQuantity)
@@ -94,7 +95,8 @@ Partial Class FormAdminCardEdit
         Label4.Name = "Label4"
         Label4.Size = New Size(68, 19)
         Label4.TabIndex = 63
-        Label4.Text = "name"' 
+        Label4.Text = "name"
+        ' 
         ' Label3
         ' 
         Label3.AutoSize = True
@@ -103,7 +105,8 @@ Partial Class FormAdminCardEdit
         Label3.Name = "Label3"
         Label3.Size = New Size(116, 19)
         Label3.TabIndex = 62
-        Label3.Text = "Quantity"' 
+        Label3.Text = "Quantity"
+        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
@@ -112,16 +115,18 @@ Partial Class FormAdminCardEdit
         Label2.Name = "Label2"
         Label2.Size = New Size(71, 19)
         Label2.TabIndex = 61
-        Label2.Text = "price"' 
-        ' Label1
+        Label2.Text = "price"
         ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Azonix", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(82, 63)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(135, 19)
-        Label1.TabIndex = 60
-        Label1.Text = "Card Type"' 
+        ' LabelGiftType
+        ' 
+        LabelGiftType.AutoSize = True
+        LabelGiftType.Font = New Font("Azonix", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelGiftType.Location = New Point(82, 63)
+        LabelGiftType.Name = "LabelGiftType"
+        LabelGiftType.Size = New Size(126, 19)
+        LabelGiftType.TabIndex = 60
+        LabelGiftType.Text = "Gift Type"
+        ' 
         ' ButtonSave
         ' 
         ButtonSave.BackColor = Color.Black
@@ -216,5 +221,5 @@ Partial Class FormAdminCardEdit
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelGiftType As Label
 End Class

@@ -29,12 +29,12 @@ Partial Class FormAdminCards
         PanelSearchById = New Panel()
         LabelSearchById = New Label()
         PanelFilter = New Panel()
-        LabelSelectCardType = New Label()
+        LabelSelectGiftType = New Label()
         CheckedListBoxFilter = New CheckedListBox()
         PictureBoxAddNew = New PictureBox()
         PictureBoxOrderHistory = New PictureBox()
         PictureBoxBack = New PictureBox()
-        LabelAddNewCard = New Label()
+        LabelAddNewGift = New Label()
         LabelOrderHistory = New Label()
         PictureBoxBanner = New PictureBox()
         FlowLayoutAdmin = New FlowLayoutPanel()
@@ -70,9 +70,10 @@ Partial Class FormAdminCards
         LabelNotFound.ForeColor = Color.Red
         LabelNotFound.Location = New Point(92, 588)
         LabelNotFound.Name = "LabelNotFound"
-        LabelNotFound.Size = New Size(126, 24)
+        LabelNotFound.Size = New Size(119, 24)
         LabelNotFound.TabIndex = 62
-        LabelNotFound.Text = "Card Not Found"' 
+        LabelNotFound.Text = "Gift Not Found"
+        ' 
         ' PictureBoxSearchId
         ' 
         PictureBoxSearchId.BackColor = Color.Transparent
@@ -115,35 +116,37 @@ Partial Class FormAdminCards
         LabelSearchById.Name = "LabelSearchById"
         LabelSearchById.Size = New Size(181, 32)
         LabelSearchById.TabIndex = 52
-        LabelSearchById.Text = "Search By Id"' 
+        LabelSearchById.Text = "Search By Id"
+        ' 
         ' PanelFilter
         ' 
         PanelFilter.BackColor = Color.Black
-        PanelFilter.Controls.Add(LabelSelectCardType)
+        PanelFilter.Controls.Add(LabelSelectGiftType)
         PanelFilter.Dock = DockStyle.Top
         PanelFilter.Location = New Point(0, 0)
         PanelFilter.Name = "PanelFilter"
         PanelFilter.Size = New Size(332, 56)
         PanelFilter.TabIndex = 51
         ' 
-        ' LabelSelectCardType
+        ' LabelSelectGiftType
         ' 
-        LabelSelectCardType.AutoSize = True
-        LabelSelectCardType.BackColor = Color.Transparent
-        LabelSelectCardType.Font = New Font("Arial Rounded MT Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelSelectCardType.ForeColor = Color.White
-        LabelSelectCardType.Location = New Point(12, 15)
-        LabelSelectCardType.Name = "LabelSelectCardType"
-        LabelSelectCardType.Size = New Size(241, 32)
-        LabelSelectCardType.TabIndex = 0
-        LabelSelectCardType.Text = "Select Card Type"' 
+        LabelSelectGiftType.AutoSize = True
+        LabelSelectGiftType.BackColor = Color.Transparent
+        LabelSelectGiftType.Font = New Font("Arial Rounded MT Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelSelectGiftType.ForeColor = Color.White
+        LabelSelectGiftType.Location = New Point(12, 15)
+        LabelSelectGiftType.Name = "LabelSelectGiftType"
+        LabelSelectGiftType.Size = New Size(223, 32)
+        LabelSelectGiftType.TabIndex = 0
+        LabelSelectGiftType.Text = "Select Gift Type"
+        ' 
         ' CheckedListBoxFilter
         ' 
         CheckedListBoxFilter.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
         CheckedListBoxFilter.CheckOnClick = True
         CheckedListBoxFilter.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
         CheckedListBoxFilter.FormattingEnabled = True
-        CheckedListBoxFilter.Items.AddRange(New Object() {"Birthday Invitation", "Wedding Invitation", "Anniversary Invitation", "Baby Shower Invitation", "Business Party", "Inaugration", "Valentine", "Retirement Wishing", "Anniversary Wishing", "Birthday Wishing", "Christmas", "New Year"})
+        CheckedListBoxFilter.Items.AddRange(New Object() {"Birthday", "Wedding", "Anniversary", "Valentine", "Festival", "Others"})
         CheckedListBoxFilter.Location = New Point(0, 80)
         CheckedListBoxFilter.Margin = New Padding(3, 3, 3, 5)
         CheckedListBoxFilter.Name = "CheckedListBoxFilter"
@@ -183,15 +186,16 @@ Partial Class FormAdminCards
         PictureBoxBack.TabIndex = 58
         PictureBoxBack.TabStop = False
         ' 
-        ' LabelAddNewCard
+        ' LabelAddNewGift
         ' 
-        LabelAddNewCard.AutoSize = True
-        LabelAddNewCard.Font = New Font("Berlin Sans FB", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
-        LabelAddNewCard.Location = New Point(78, 159)
-        LabelAddNewCard.Name = "LabelAddNewCard"
-        LabelAddNewCard.Size = New Size(141, 23)
-        LabelAddNewCard.TabIndex = 61
-        LabelAddNewCard.Text = "Add New Card"' 
+        LabelAddNewGift.AutoSize = True
+        LabelAddNewGift.Font = New Font("Berlin Sans FB", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelAddNewGift.Location = New Point(78, 159)
+        LabelAddNewGift.Name = "LabelAddNewGift"
+        LabelAddNewGift.Size = New Size(129, 23)
+        LabelAddNewGift.TabIndex = 61
+        LabelAddNewGift.Text = "Add New Gift"
+        ' 
         ' LabelOrderHistory
         ' 
         LabelOrderHistory.AutoSize = True
@@ -200,7 +204,8 @@ Partial Class FormAdminCards
         LabelOrderHistory.Name = "LabelOrderHistory"
         LabelOrderHistory.Size = New Size(126, 23)
         LabelOrderHistory.TabIndex = 62
-        LabelOrderHistory.Text = "Order History"' 
+        LabelOrderHistory.Text = "Order History"
+        ' 
         ' PictureBoxBanner
         ' 
         PictureBoxBanner.Image = My.Resources.Resources.banner2
@@ -230,7 +235,7 @@ Partial Class FormAdminCards
         Controls.Add(FlowLayoutAdmin)
         Controls.Add(PictureBoxBanner)
         Controls.Add(LabelOrderHistory)
-        Controls.Add(LabelAddNewCard)
+        Controls.Add(LabelAddNewGift)
         Controls.Add(PanelSidePane)
         Controls.Add(PictureBoxAddNew)
         Controls.Add(PictureBoxOrderHistory)
@@ -257,7 +262,7 @@ Partial Class FormAdminCards
     Friend WithEvents PanelSidePane As Panel
     Friend WithEvents LabelCategories As Label
     Friend WithEvents PanelFilter As Panel
-    Friend WithEvents LabelSelectCardType As Label
+    Friend WithEvents LabelSelectGiftType As Label
     Friend WithEvents CheckedListBoxFilter As CheckedListBox
     Friend WithEvents PictureBoxAddNew As PictureBox
     Friend WithEvents PictureBoxOrderHistory As PictureBox
@@ -267,7 +272,7 @@ Partial Class FormAdminCards
     Friend WithEvents PictureBoxSearchId As PictureBox
     Friend WithEvents TextBoxSearchId As TextBox
     Friend WithEvents LabelNotFound As Label
-    Friend WithEvents LabelAddNewCard As Label
+    Friend WithEvents LabelAddNewGift As Label
     Friend WithEvents LabelOrderHistory As Label
     Friend WithEvents PictureBoxBanner As PictureBox
     Friend WithEvents FlowLayoutAdmin As FlowLayoutPanel

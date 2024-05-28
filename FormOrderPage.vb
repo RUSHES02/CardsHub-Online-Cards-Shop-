@@ -26,7 +26,7 @@ Public Class FormOrderPage
             ComboBoxState.Items.Add(state)
         Next
 
-        'initially setting to text box and label of upi and card details false
+        'initially setting to text box and label of upi and Gift details false
         LabelUPIOrCard.Visible = False
         TextBox1UPIOrCard.Visible = False
 
@@ -110,7 +110,7 @@ Public Class FormOrderPage
             cmd.ExecuteNonQuery()
 
             'updating the inventory table
-            cmd = New SqlCommand("UPDATE TableInventory Set Quantity = ((SELECT Quantity FROM TableInventory WHERE CardId = @id) - @qSet) WHERE CardId = @id", conn)
+            cmd = New SqlCommand("UPDATE TableInventory Set Quantity = ((SELECT Quantity FROM TableInventory WHERE GiftId = @id) - @qSet) WHERE GiftId = @id", conn)
             cmd.Parameters.AddWithValue("@id", selectCardUid)
             cmd.Parameters.AddWithValue("@qSet", quantitySelected)
             cmd.ExecuteNonQuery()

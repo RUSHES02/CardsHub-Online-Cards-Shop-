@@ -34,14 +34,14 @@ Public Class FormOrderHistory
             ComboBoxSearchCategory.Items.Add("Phone")
 
             'getting all  order history
-            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId ORDER BY TableOrder.OrderId ASC", conn)
+            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableGifts.Gifttemplate, TableGifts.Name FROM TableOrder JOIN TableGifts ON TableOrder.GiftId = TableGifts.GiftId ORDER BY TableOrder.OrderId ASC", conn)
 
             'for customer site
         Else
             ComboBoxSearchCategory.Visible = False
             LabelSelectType.Visible = False
             'getting only the order history of a specific customer
-            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId WHERE TableOrder.Email = @email ORDER BY tableOrder.OrderId ASC", conn)
+            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableGifts.Gifttemplate, TableGifts.Name FROM TableOrder JOIN TableGifts ON TableOrder.GiftId = TableGifts.GiftId WHERE TableOrder.Email = @email ORDER BY tableOrder.OrderId ASC", conn)
             cmd.Parameters.AddWithValue("@email", logedInEmail)
         End If
         cmd.ExecuteNonQuery()
@@ -50,10 +50,10 @@ Public Class FormOrderHistory
         'setting all the data from sql to the components
         While reader.Read()
             'variable to store image
-            Dim cardImage() As Byte
-            cardImage = reader.Item("CardTemplate")
+            Dim GiftImage() As Byte
+            GiftImage = reader.Item("GiftTemplate")
             'converting image to memory strem
-            Dim ms As New MemoryStream(cardImage)
+            Dim ms As New MemoryStream(GiftImage)
             'creating panels and setting all data
             createPanel(reader.Item("OrderId"))
             createPictureBox(currentPanel, ms)
@@ -120,24 +120,24 @@ Public Class FormOrderHistory
         conn.Open()
         If Not TextBoxSearch.Text = "" Then
             If ComboBoxSearchCategory.SelectedItem = "Name" Then
-                cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId WHERE TableOrder.Name LIKE @name + '%'", conn)
+                cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableGifts.Gifttemplate, TableGifts.Name FROM TableOrder JOIN TableGifts ON TableOrder.GiftId = TableGifts.GiftId WHERE TableOrder.Name LIKE @name + '%'", conn)
                 cmd.Parameters.AddWithValue("@name", TextBoxSearch.Text)
             ElseIf ComboBoxSearchCategory.SelectedItem = "Email" Then
-                cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId WHERE TableOrder.Email LIKE @email  + '%'", conn)
+                cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableGifts.Gifttemplate, TableGifts.Name FROM TableOrder JOIN TableGifts ON TableOrder.GiftId = TableGifts.GiftId WHERE TableOrder.Email LIKE @email  + '%'", conn)
                 cmd.Parameters.AddWithValue("@email", TextBoxSearch.Text)
             ElseIf ComboBoxSearchCategory.SelectedItem = "Phone" Then
-                cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId WHERE TableOrder.Phone LIKE @phone + '%'", conn)
+                cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableGifts.Gifttemplate, TableGifts.Name FROM TableOrder JOIN TableGifts ON TableOrder.GiftId = TableGifts.GiftId WHERE TableOrder.Phone LIKE @phone + '%'", conn)
                 cmd.Parameters.AddWithValue("@phone", TextBoxSearch.Text)
             End If
         Else
-            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableCards.Cardtemplate, TableCards.Name FROM TableOrder JOIN TableCards ON TableOrder.CardId = TableCards.CardId", conn)
+            cmd = New SqlCommand("SELECT TableOrder.OrderId, TableOrder.State, TableOrder.City, TableOrder.AddressLine, TableOrder.Pincode, TableOrder.Landmark, TableOrder.Email, TableOrder.TotalCost, TableOrder.DeliveryDate, TableOrder.PaymentMode, TableOrder.Name, TableOrder.Phone, TableGifts.Gifttemplate, TableGifts.Name FROM TableOrder JOIN TableGifts ON TableOrder.GiftId = TableGifts.GiftId", conn)
         End If
 
         reader = cmd.ExecuteReader()
         While reader.Read()
-            Dim cardImage() As Byte
-            cardImage = reader.Item("CardTemplate")
-            Dim ms As New MemoryStream(cardImage)
+            Dim GiftImage() As Byte
+            GiftImage = reader.Item("GiftTemplate")
+            Dim ms As New MemoryStream(GiftImage)
             createPanel(reader.Item("OrderId"))
             createPictureBox(currentPanel, ms)
             createLabelName(currentPanel, reader.Item("Name") + vbCrLf + vbCrLf + reader.Item("Email") + vbCrLf + vbCrLf + reader.Item("Phone").ToString())
@@ -157,10 +157,10 @@ Public Class FormOrderHistory
 
     'creating indivisual panels
     Public Sub createPanel(ByVal uid As String)
-        Dim cardPanel As Panel
-        cardPanel = New Panel()
+        Dim GiftPanel As Panel
+        GiftPanel = New Panel()
         'Set panel properties
-        With cardPanel
+        With GiftPanel
             .BackColor = Color.White
             .Size = New Size(Width, 300)
             .Name = uid + "Pane"
@@ -169,22 +169,22 @@ Public Class FormOrderHistory
         End With
 
         'Add panel to layout panel
-        FlowLayoutOrderHistory.Controls.Add(cardPanel)
+        FlowLayoutOrderHistory.Controls.Add(GiftPanel)
 
-        currentPanel = cardPanel.Name
+        currentPanel = GiftPanel.Name
     End Sub
 
-    'creating picture box and adding card template to it
+    'creating picture box and adding Gift template to it
     Public Sub createPictureBox(ByVal panelName As String, ByVal ms As MemoryStream)
-        Dim cardTemplate As PictureBox
-        cardTemplate = New PictureBox
+        Dim GiftTemplate As PictureBox
+        GiftTemplate = New PictureBox
 
         'set picture box properties
-        With cardTemplate
+        With GiftTemplate
             .SizeMode = PictureBoxSizeMode.Zoom
             .Size = New Drawing.Size(190, 285)
             .Location = New Point(5, 5)
-            .Name = "cardTemplate" + currentPanel
+            .Name = "GiftTemplate" + currentPanel
             .Image = Image.FromStream(ms)
             .Anchor = AnchorStyles.Left And AnchorStyles.Top
         End With
@@ -192,21 +192,21 @@ Public Class FormOrderHistory
         'adding picture box to the panel
         For Each controlObject In FlowLayoutOrderHistory.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardTemplate)
+                controlObject.Controls.Add(GiftTemplate)
             End If
         Next
     End Sub
 
     'creating and adding name, email, phone number to the panels
     Public Sub createLabelName(ByVal panelName As String, ByVal name As String)
-        Dim cardLabelName As Label
-        cardLabelName = New Label
+        Dim GiftLabelName As Label
+        GiftLabelName = New Label
 
         'setting label properties
-        With cardLabelName
+        With GiftLabelName
             .AutoSize = True
             .Location = New Point(220, 50)
-            .Name = "cardLabelName" + currentPanel
+            .Name = "GiftLabelName" + currentPanel
             .Text = name
             .Font = New Font("Century Schoolbook", 16)
         End With
@@ -214,21 +214,21 @@ Public Class FormOrderHistory
         'adding the label to the panel
         For Each controlObject In FlowLayoutOrderHistory.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardLabelName)
+                controlObject.Controls.Add(GiftLabelName)
             End If
         Next
     End Sub
 
     'creating and adding address to the panel
     Public Sub createLabelAddress(ByVal panelName As String, ByVal address As String)
-        Dim cardLabelAddress As Label
-        cardLabelAddress = New Label
+        Dim GiftLabelAddress As Label
+        GiftLabelAddress = New Label
 
         'setting label properties
-        With cardLabelAddress
+        With GiftLabelAddress
             .AutoSize = True
             .Location = New Point(700, 50)
-            .Name = "cardLabelQuantity" + currentPanel
+            .Name = "GiftLabelQuantity" + currentPanel
             .Text = address
             .Font = New Font("Century Schoolbook", 16)
         End With
@@ -236,21 +236,21 @@ Public Class FormOrderHistory
         'adding the label to the panel
         For Each controlObject In FlowLayoutOrderHistory.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardLabelAddress)
+                controlObject.Controls.Add(GiftLabelAddress)
             End If
         Next
     End Sub
 
     'creating and adding price, transaction mode to the panel
     Public Sub createLabelPrice(ByVal panelName As String, ByVal price As String)
-        Dim cardLabelPrice As Label
-        cardLabelPrice = New Label
+        Dim GiftLabelPrice As Label
+        GiftLabelPrice = New Label
 
         'setting label properties
-        With cardLabelPrice
+        With GiftLabelPrice
             .AutoSize = True
             .Location = New Point(1200, 50)
-            .Name = "cardLabelQuantity" + currentPanel
+            .Name = "GiftLabelQuantity" + currentPanel
             .Text = price
             .Font = New Font("Century Schoolbook", 16)
         End With
@@ -258,21 +258,21 @@ Public Class FormOrderHistory
         'adding the label to the panel
         For Each controlObject In FlowLayoutOrderHistory.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardLabelPrice)
+                controlObject.Controls.Add(GiftLabelPrice)
             End If
         Next
     End Sub
 
     'creating and adding deliverry date to the panel
     Public Sub createLabelDelivery(ByVal panelName As String, ByVal delivery As String)
-        Dim cardLabelDelivery As Label
-        cardLabelDelivery = New Label
+        Dim GiftLabelDelivery As Label
+        GiftLabelDelivery = New Label
 
         'setting label properties
-        With cardLabelDelivery
+        With GiftLabelDelivery
             .AutoSize = True
             .Location = New Point(1500, 50)
-            .Name = "cardLabelQuantity" + currentPanel
+            .Name = "GiftLabelQuantity" + currentPanel
             .Text = delivery
             .Font = New Font("Century Schoolbook", 16)
         End With
@@ -280,7 +280,7 @@ Public Class FormOrderHistory
         'adding the label to the panel
         For Each controlObject In FlowLayoutOrderHistory.Controls
             If controlObject.Name = panelName Then
-                controlObject.Controls.Add(cardLabelDelivery)
+                controlObject.Controls.Add(GiftLabelDelivery)
             End If
         Next
     End Sub
